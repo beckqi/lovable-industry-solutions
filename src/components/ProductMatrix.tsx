@@ -207,7 +207,7 @@ const ProductMatrix = () => {
               />
             )}
           </AnimatePresence>
-          <div className="container mx-auto px-8 lg:px-16">
+          <div className="container mx-auto px-8 lg:px-16 relative z-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               {/* Left - Large Icon */}
               <div className="relative flex items-center justify-center">
