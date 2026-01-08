@@ -33,7 +33,7 @@ const Navbar = () => {
         {/* Logo - white text on purple background */}
         <a href="/" className="flex items-center gap-2 group">
           <span className={`font-semibold text-xl tracking-tight transition-colors duration-300 ${
-            isScrolled ? "text-foreground" : "text-white"
+            isScrolled ? "text-foreground" : "text-foreground"
           }`}>
             infimind
           </span>
@@ -51,7 +51,7 @@ const Navbar = () => {
               {link.hasDropdown ? (
                 <button
                   className={`relative py-2 flex items-center gap-1 transition-colors duration-300 hover:opacity-80 ${
-                    isScrolled ? "text-foreground" : "text-white"
+                    isScrolled ? "text-foreground" : "text-foreground"
                   }`}
                 >
                   {link.label}
@@ -65,7 +65,7 @@ const Navbar = () => {
                 <a
                   href={link.href}
                   className={`relative py-2 transition-colors duration-300 hover:opacity-80 ${
-                    isScrolled ? "text-foreground" : "text-white"
+                    isScrolled ? "text-foreground" : "text-foreground"
                   }`}
                 >
                   {link.label}
@@ -81,7 +81,7 @@ const Navbar = () => {
         {/* CTA Button */}
         <div className="hidden md:flex items-center gap-4">
           <a href="#" className={`transition-colors duration-300 hover:opacity-80 ${
-            isScrolled ? "text-foreground" : "text-white"
+            isScrolled ? "text-foreground" : "text-foreground"
           }`}>
             登录
           </a>
@@ -90,7 +90,7 @@ const Navbar = () => {
             className={`rounded-full px-6 transition-all duration-300 ${
               isScrolled 
                 ? "bg-foreground text-background hover:bg-foreground/90" 
-                : "bg-white text-[#6366f1] hover:bg-white/90"
+                : "bg-foreground text-background hover:bg-foreground/90"
             }`}
           >
             预约演示
@@ -100,7 +100,7 @@ const Navbar = () => {
         {/* Mobile Menu Toggle */}
         <button
           className={`md:hidden p-2 transition-colors duration-300 ${
-            isScrolled ? "text-foreground" : "text-white"
+            isScrolled ? "text-foreground" : "text-foreground"
           }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
