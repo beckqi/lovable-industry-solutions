@@ -26,10 +26,10 @@ const HeroSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal text-white tracking-tight leading-[1.1]" style={{ fontFamily: "'Times New Roman', 'Noto Serif SC', serif" }}>
-            AI重新定义
+          <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-white tracking-tight leading-[1.1]">
+            <span className="font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">AI</span>重新定义
           </span>
-          <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-tight leading-[1.1] mt-2" style={{ fontFamily: "'Times New Roman', 'Noto Serif SC', serif" }}>
+          <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-white tracking-tight leading-[1.1] mt-2">
             产品生产力
           </span>
         </h1>
