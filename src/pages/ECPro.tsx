@@ -72,25 +72,25 @@ const features = [
   },
 ];
 
-const templateImages = [
-  "https://cms-s3.ipim.cn/upload/12_b871682e51.jpg",
-  "https://cms-s3.ipim.cn/upload/2_e1a105c348.jpg",
-  "https://cms-s3.ipim.cn/upload/4_8f4fb79194.jpg",
-  "https://cms-s3.ipim.cn/upload/26_91f8d7b1c9.jpg",
-  "https://cms-s3.ipim.cn/upload/17_9c83c9101d.jpg",
-  "https://cms-s3.ipim.cn/upload/13_a0420606b9.JPG",
-  "https://cms-s3.ipim.cn/upload/5_5a5a9809b4.jpg",
-  "https://cms-s3.ipim.cn/upload/12_47b21d2fe9.jpg",
-  "https://cms-s3.ipim.cn/upload/18_67b5893d2b.jpg",
+// Template showcase images - 3 main product displays
+const templateShowcase = [
+  {
+    image: "https://cms-s3.ipim.cn/upload/12_b871682e51.jpg",
+    tags: ["春季新款", "简约风格"],
+  },
+  {
+    image: "https://cms-s3.ipim.cn/upload/2_e1a105c348.jpg",
+    tags: ["合体版型 舒适自如", "时尚简约 百搭时尚"],
+    brand: "WARRIOR",
+    hasDetails: true,
+  },
+  {
+    image: "https://cms-s3.ipim.cn/upload/4_8f4fb79194.jpg",
+    tags: ["时尚百搭"],
+  },
 ];
 
 const customerCases = [
-  {
-    logo: "https://infimind.com/images/customerCase/logo_%E8%BF%AA%E6%A1%91%E7%89%B9.png",
-    name: "迪桑特",
-    description: "迪桑特2021年与极睿达成深度合作，通过极睿商品操作系统，可以制作更优质的营销素材覆盖更多的平台，实现更好的消费者触达与转化，降低管理成本，实现商品全生命周期智能化运营，进一步实现货品品类结构与上新波段的升级。",
-    image: "https://infimind.com/images/customerCase/img_%E8%BF%AA%E6%A1%91%E7%89%B9.png",
-  },
   {
     logo: "https://infimind.com/images/customerCase/logo_%E4%BE%8B%E5%A4%96.png",
     name: "例外",
@@ -98,23 +98,60 @@ const customerCases = [
     image: "https://infimind.com/images/customerCase/img_%E4%BE%8B%E5%A4%96.png",
   },
   {
+    logo: "https://infimind.com/images/customerCase/logo_%E8%BF%AA%E6%A1%91%E7%89%B9.png",
+    name: "迪桑特",
+    description: "迪桑特2021年与极睿达成深度合作，通过极睿商品操作系统，可以制作更优质的营销素材覆盖更多的平台，实现更好的消费者触达与转化，降低管理成本，实现商品全生命周期智能化运营。",
+    image: "https://infimind.com/images/customerCase/img_%E8%BF%AA%E6%A1%91%E7%89%B9.png",
+  },
+  {
     logo: "https://infimind.com/images/customerCase/logo_%E4%BC%8A%E8%8A%99%E4%B8%BD.png",
     name: "伊芙丽",
-    description: "伊芙丽集团于22年与极睿科技进行深度合作，通过易尚货自动生成店铺图片素材，数据上下游统一管理，实现一键多平台同步上新及管理详情页等功能。利用人工智能，便于多平台多店铺系统化、数字化管理。",
+    description: "伊芙丽集团于22年与极睿科技进行深度合作，通过易尚货自动生成店铺图片素材，数据上下游统一管理，实现一键多平台同步上新及管理详情页等功能。",
     image: "https://infimind.com/images/customerCase/img_%E4%BC%8A%E8%8A%99%E4%B8%BD.png",
   },
   {
     logo: "https://infimind.com/images/customerCase/logo_%E4%BB%A5%E7%BA%AF.png",
     name: "以纯",
-    description: "以纯集团于22年与极睿科技进行深度合作，通过易尚货智能解析图片、自动生成线上店铺营销需要的所有图片素材，并通过一键多平台同步上新及批量投放和管理等功能。将重复的工作交于人工智能，把重心更多的放在设计与研发，专注品牌力的提升。",
+    description: "以纯集团于22年与极睿科技进行深度合作，通过易尚货智能解析图片、自动生成线上店铺营销需要的所有图片素材。",
     image: "https://infimind.com/images/customerCase/img_%E4%BB%A5%E7%BA%AF.png",
   },
 ];
 
+// Brand logos grid - matching the screenshot exactly
+const brandLogos = [
+  { name: "MO&Co.", text: "MO&Co." },
+  { name: "JNBY", text: "JNBY/江南布衣" },
+  { name: "O.L.E", text: "O.L.E 仟叶" },
+  { name: "G2000", text: "G2000" },
+  { name: "VICUTU", text: "VICUTU" },
+  { name: "MM", text: "MM" },
+  { name: "i.t", text: "i.t" },
+  { name: "Stussy", text: "Stussy" },
+  { name: "DIKENI", text: "DIKENI" },
+  { name: "balabala", text: "balabala" },
+  { name: "BSX", text: "BSX" },
+  { name: "PAMAX", text: "PAMAX" },
+  { name: "Lang", text: "Lang" },
+  { name: "A", text: "A" },
+  { name: "SCOFILD", text: "SCOFILD" },
+  { name: "YOWHAY", text: "YOWHAY" },
+  { name: "Roem", text: "Roem" },
+  { name: "brand1", text: "" },
+  { name: "brand2", text: "" },
+  { name: "LANDI", text: "LANDI" },
+  { name: "Song of Song", text: "Song of Song" },
+  { name: "YINER", text: "YINER 音儿" },
+  { name: "Annil", text: "Annil" },
+  { name: "Baleno", text: "Baleno" },
+  { name: "MEILNI", text: "MEILNI" },
+  { name: "MIID", text: "MIID" },
+];
+
 const ECPro = () => {
-  const [activeFeature, setActiveFeature] = useState(2); // Default to 03 like the website
+  const [activeFeature, setActiveFeature] = useState(2);
   const [currentCase, setCurrentCase] = useState(0);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeTab, setActiveTab] = useState<'detail' | 'resource'>('resource');
+  const [currentTemplateSlide, setCurrentTemplateSlide] = useState(0);
 
   const nextCase = () => {
     setCurrentCase((prev) => (prev + 1) % customerCases.length);
@@ -124,53 +161,60 @@ const ECPro = () => {
     setCurrentCase((prev) => (prev - 1 + customerCases.length) % customerCases.length);
   };
 
+  const nextTemplate = () => {
+    setCurrentTemplateSlide((prev) => (prev + 1) % 3);
+  };
+
+  const prevTemplate = () => {
+    setCurrentTemplateSlide((prev) => (prev - 1 + 3) % 3);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       
-      {/* Hero Section - Blue gradient exactly like infimind */}
-      <section className="pt-24 pb-0 bg-gradient-to-br from-[#4F46E5] via-[#5B4EE8] to-[#6366F1] relative overflow-hidden min-h-[500px]">
-        {/* Decorative curved waves at bottom */}
+      {/* Hero Section - Blue gradient exactly like screenshot */}
+      <section className="pt-20 pb-16 bg-gradient-to-br from-[#4F46E5] via-[#5B4EE8] to-[#6366F1] relative overflow-hidden">
+        {/* Decorative curved waves */}
         <div className="absolute bottom-0 left-0 right-0 w-full">
-          <svg viewBox="0 0 1440 200" fill="none" preserveAspectRatio="none" className="w-full h-32">
+          <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" className="w-full h-24">
             <path 
-              d="M0,100 C150,150 350,50 600,100 C850,150 1050,50 1200,100 C1300,130 1400,80 1440,100 L1440,200 L0,200 Z" 
-              fill="rgba(255,255,255,0.1)"
+              d="M0,60 Q360,100 720,60 T1440,60 L1440,120 L0,120 Z" 
+              fill="rgba(255,255,255,0.08)"
             />
             <path 
-              d="M0,130 C200,170 400,90 700,130 C900,160 1100,100 1440,140 L1440,200 L0,200 Z" 
-              fill="rgba(255,255,255,0.05)"
+              d="M0,80 Q360,110 720,80 T1440,80 L1440,120 L0,120 Z" 
+              fill="rgba(255,255,255,0.04)"
             />
           </svg>
         </div>
 
-        {/* Decorative circles */}
-        <div className="absolute top-10 left-0 w-[500px] h-[500px] opacity-20">
-          <div className="absolute top-0 left-0 w-80 h-80 border border-white/30 rounded-full" />
-          <div className="absolute top-10 left-10 w-64 h-64 border border-white/20 rounded-full" />
-          <div className="absolute top-20 left-20 w-48 h-48 border border-white/10 rounded-full" />
+        {/* Decorative circles on left */}
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] opacity-15">
+          <div className="absolute top-8 left-4 w-72 h-72 border border-white/40 rounded-full" />
+          <div className="absolute top-16 left-12 w-56 h-56 border border-white/30 rounded-full" />
+          <div className="absolute top-24 left-20 w-40 h-40 border border-white/20 rounded-full" />
         </div>
         
         <div className="container mx-auto max-w-7xl px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[450px]">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Left - Text Content */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="py-12"
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="py-8"
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+              <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
                 ECPro易尚货
               </h1>
               
-              <p className="text-base md:text-lg text-white/80 leading-relaxed mb-8 max-w-lg">
+              <p className="text-sm md:text-base text-white/75 leading-relaxed mb-6 max-w-md">
                 易尚货是针对泛服装电商上新频率快、美工作图成本高、多平台上货工作重复低效等情况而推出的电商商品内容一站式服务平台
               </p>
               
               <Button 
-                size="lg"
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#4F46E5] rounded-full px-10 py-6 text-base font-medium transition-all duration-300"
+                className="bg-transparent border border-white/80 text-white hover:bg-white hover:text-[#4F46E5] rounded-full px-8 py-2.5 text-sm font-normal transition-all duration-300"
               >
                 立即试用
               </Button>
@@ -178,43 +222,42 @@ const ECPro = () => {
 
             {/* Right - 3D Box Visual */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
               className="relative flex justify-center items-center"
             >
               <div className="relative">
                 <motion.div
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
                   className="relative"
                 >
-                  {/* 3D Box Image */}
                   <img 
                     src="https://cms-s3.ipim.cn/infimind/banner_img_08a40ae53b.png" 
                     alt="ECPro 3D Box"
-                    className="w-[450px] h-auto object-contain"
+                    className="w-[320px] md:w-[380px] h-auto object-contain"
                   />
                   
-                  {/* Floating labels - positioned like original */}
+                  {/* Floating labels */}
                   <motion.div
-                    animate={{ y: [0, -5, 0] }}
+                    animate={{ y: [0, -4, 0] }}
                     transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute right-0 top-8 bg-[#22C55E] text-white px-5 py-2.5 rounded-lg text-sm shadow-lg font-medium"
+                    className="absolute -right-2 top-6 bg-[#10B981] text-white px-4 py-2 rounded-md text-xs shadow-lg"
                   >
                     素材制作
                   </motion.div>
                   <motion.div
-                    animate={{ y: [0, 5, 0] }}
+                    animate={{ y: [0, 4, 0] }}
                     transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-                    className="absolute left-4 bottom-28 bg-[#3B82F6] text-white px-5 py-2.5 rounded-lg text-sm shadow-lg font-medium"
+                    className="absolute left-0 bottom-24 bg-[#3B82F6] text-white px-4 py-2 rounded-md text-xs shadow-lg"
                   >
                     运营管理
                   </motion.div>
                   <motion.div
-                    animate={{ y: [0, -5, 0] }}
+                    animate={{ y: [0, -4, 0] }}
                     transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                    className="absolute right-12 bottom-12 bg-[#F97316] text-white px-5 py-2.5 rounded-lg text-sm shadow-lg font-medium"
+                    className="absolute right-8 bottom-8 bg-[#F59E0B] text-white px-4 py-2 rounded-md text-xs shadow-lg"
                   >
                     渠道发布
                   </motion.div>
@@ -225,49 +268,44 @@ const ECPro = () => {
         </div>
       </section>
 
-      {/* Product Features Section - Exact layout like infimind */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-7xl">
+      {/* Product Features Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 max-w-6xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
               产品功能
             </h2>
-            <p className="text-lg text-slate-500">
+            <p className="text-slate-500 text-sm">
               一站式智能美工平台
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left - Feature List with left border indicator */}
-            <div className="space-y-0">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left - Feature List */}
+            <div>
               {features.map((feature, index) => (
-                <motion.div
+                <div
                   key={feature.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
                   onClick={() => setActiveFeature(index)}
-                  className={`relative py-5 px-6 cursor-pointer transition-all duration-300 border-l-4 ${
+                  className={`py-4 px-4 cursor-pointer transition-all duration-200 border-l-[3px] ${
                     activeFeature === index
-                      ? "border-[#4F46E5] bg-slate-50"
+                      ? "border-[#4F46E5] bg-slate-50/80"
                       : "border-transparent hover:bg-slate-50/50"
                   }`}
                 >
-                  <div className="flex items-start gap-3">
-                    <span className={`text-lg font-bold transition-colors ${
+                  <div className="flex items-start gap-2">
+                    <span className={`text-base font-bold transition-colors ${
                       activeFeature === index ? "text-[#4F46E5]" : "text-slate-300"
                     }`}>
                       {feature.id}
                     </span>
                     <div className="flex-1">
-                      <h3 className={`font-medium text-lg transition-colors ${
+                      <h3 className={`font-medium text-base transition-colors ${
                         activeFeature === index ? "text-[#4F46E5]" : "text-slate-700"
                       }`}>
                         {feature.title}
@@ -276,178 +314,176 @@ const ECPro = () => {
                         <motion.p
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
-                          transition={{ duration: 0.3 }}
-                          className="text-sm text-slate-500 leading-relaxed mt-2"
+                          className="text-xs text-slate-500 leading-relaxed mt-1.5"
                         >
                           {feature.description}
                         </motion.p>
                       )}
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
             {/* Right - Feature Screenshot */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="sticky top-24"
-            >
-              <div className="relative">
-                {/* Screenshot display area */}
-                <div className="bg-white rounded-lg shadow-2xl overflow-hidden border border-slate-200">
-                  <motion.img
-                    key={activeFeature}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.4 }}
-                    src={features[activeFeature].image}
-                    alt={features[activeFeature].title}
-                    className="w-full h-auto"
-                  />
-                </div>
-
-                {/* Feature info overlay at bottom */}
-                <div className="mt-6 bg-white rounded-lg shadow-lg p-6 border border-slate-100">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-[#4F46E5] font-bold text-lg">{features[activeFeature].id}</span>
-                    <span className="text-slate-900 font-semibold">{features[activeFeature].title}</span>
-                  </div>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    {features[activeFeature].description}
-                  </p>
-                </div>
+            <div className="sticky top-20">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-slate-100">
+                <motion.img
+                  key={activeFeature}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  src={features[activeFeature].image}
+                  alt={features[activeFeature].title}
+                  className="w-full h-auto"
+                />
               </div>
 
-              <div className="mt-8 text-center">
+              <div className="mt-6 text-center">
                 <Button 
-                  size="lg"
-                  className="bg-[#4F46E5] text-white hover:bg-[#4338CA] rounded-full px-10 py-6 text-base shadow-lg"
+                  className="bg-[#4F46E5] text-white hover:bg-[#4338CA] rounded-full px-8 py-2.5 text-sm"
                 >
                   立即试用
                 </Button>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Template Library Section - Like infimind carousel */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-6 max-w-7xl">
+      {/* Template Library Section - Matching screenshot exactly */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 max-w-6xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-10"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
               海量优质模板库
             </h2>
           </motion.div>
 
-          {/* Stats cards - exactly like infimind */}
-          <div className="flex justify-center gap-8 mb-12 flex-wrap">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-xl px-8 py-5 shadow-sm flex items-center gap-4"
+          {/* Tab buttons like screenshot */}
+          <div className="flex justify-center gap-6 mb-10">
+            <button
+              onClick={() => setActiveTab('detail')}
+              className={`px-4 py-2 text-sm font-medium transition-all ${
+                activeTab === 'detail'
+                  ? "text-slate-900 border-b-2 border-[#4F46E5]"
+                  : "text-slate-500 hover:text-slate-700"
+              }`}
             >
-              <span className="text-slate-700 font-medium">详情页模板</span>
-              <span className="text-[#4F46E5] font-bold text-xl">5000+</span>
-              <span className="text-slate-400 text-sm">素材库</span>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-white rounded-xl px-8 py-5 shadow-sm flex items-center gap-4"
+              详情页模板
+            </button>
+            <button
+              onClick={() => setActiveTab('resource')}
+              className={`px-4 py-2 text-sm font-medium transition-all flex items-center gap-2 ${
+                activeTab === 'resource'
+                  ? "text-slate-900 border-b-2 border-[#4F46E5]"
+                  : "text-slate-500 hover:text-slate-700"
+              }`}
             >
-              <span className="text-slate-700 font-medium">资源图模板</span>
-              <span className="text-[#22C55E] font-bold text-xl">图文+视频</span>
-            </motion.div>
+              资源图模板
+              <span className="bg-[#4F46E5] text-white text-xs px-2 py-0.5 rounded">5000+</span>
+            </button>
           </div>
 
-          {/* Image carousel - infinite scroll like infimind */}
-          <div className="relative overflow-hidden py-4">
-            {/* First row - scrolling left */}
-            <div className="mb-4">
+          {/* Template carousel - 3 product cards like screenshot */}
+          <div className="relative px-12">
+            <div className="grid grid-cols-3 gap-6">
+              {/* Card 1 - Dress images */}
               <motion.div
-                animate={{ x: [0, -1400] }}
-                transition={{ 
-                  duration: 25, 
-                  repeat: Infinity, 
-                  ease: "linear",
-                  repeatType: "loop"
-                }}
-                className="flex gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden"
               >
-                {[...templateImages, ...templateImages, ...templateImages].map((img, i) => (
-                  <div
-                    key={`row1-${i}`}
-                    className="w-36 h-48 rounded-lg flex-shrink-0 overflow-hidden shadow-md"
-                  >
+                <div className="aspect-[3/4] relative overflow-hidden">
+                  <img 
+                    src="https://cms-s3.ipim.cn/upload/12_b871682e51.jpg"
+                    alt="Template 1"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Card 2 - Main featured with details */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="bg-white rounded-xl shadow-md border border-slate-100 overflow-hidden"
+              >
+                <div className="p-4">
+                  {/* Product thumbnails row */}
+                  <div className="flex gap-2 mb-3 justify-center">
+                    {[1,2,3,4,5].map((i) => (
+                      <div key={i} className="w-10 h-10 bg-slate-100 rounded overflow-hidden">
+                        <div className="w-full h-full bg-slate-200" />
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Main image */}
+                  <div className="aspect-square relative overflow-hidden rounded-lg mb-3">
                     <img 
-                      src={img} 
-                      alt={`Template ${i + 1}`}
+                      src="https://cms-s3.ipim.cn/upload/2_e1a105c348.jpg"
+                      alt="Template 2"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                ))}
-              </motion.div>
-            </div>
 
-            {/* Second row - scrolling right */}
-            <div>
-              <motion.div
-                animate={{ x: [-1400, 0] }}
-                transition={{ 
-                  duration: 25, 
-                  repeat: Infinity, 
-                  ease: "linear",
-                  repeatType: "loop"
-                }}
-                className="flex gap-4"
-              >
-                {[...templateImages.reverse(), ...templateImages, ...templateImages].map((img, i) => (
-                  <div
-                    key={`row2-${i}`}
-                    className="w-36 h-48 rounded-lg flex-shrink-0 overflow-hidden shadow-md"
-                  >
-                    <img 
-                      src={img} 
-                      alt={`Template ${i + 1}`}
-                      className="w-full h-full object-cover"
-                    />
+                  {/* Description text */}
+                  <div className="text-center space-y-1">
+                    <p className="text-xs text-slate-500">合体版型 舒适自如</p>
+                    <p className="text-xs text-slate-400">时尚简约 百搭时尚</p>
                   </div>
-                ))}
+
+                  {/* Brand logo */}
+                  <div className="mt-3 flex justify-center">
+                    <span className="text-red-600 font-bold text-sm">WARRIOR</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Card 3 - Model image */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden"
+              >
+                <div className="aspect-[3/4] relative overflow-hidden">
+                  <img 
+                    src="https://cms-s3.ipim.cn/upload/4_8f4fb79194.jpg"
+                    alt="Template 3"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </motion.div>
             </div>
 
-            {/* Navigation dots */}
-            <div className="flex justify-center gap-2 mt-8">
-              {Array.from({ length: 9 }).map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentSlide(i)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    currentSlide === i ? "bg-[#4F46E5] w-4" : "bg-slate-300"
-                  }`}
-                />
-              ))}
-            </div>
+            {/* Navigation arrows */}
+            <button 
+              onClick={prevTemplate}
+              className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-slate-50 transition-colors border border-slate-100"
+            >
+              <ChevronLeft className="w-5 h-5 text-slate-400" />
+            </button>
+            <button 
+              onClick={nextTemplate}
+              className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-slate-50 transition-colors border border-slate-100"
+            >
+              <ChevronRight className="w-5 h-5 text-slate-400" />
+            </button>
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-10 text-center">
             <Button 
-              size="lg"
-              className="bg-[#4F46E5] text-white hover:bg-[#4338CA] rounded-full px-10 py-6 text-base shadow-lg"
+              className="bg-[#4F46E5] text-white hover:bg-[#4338CA] rounded-full px-8 py-2.5 text-sm"
             >
               立即试用
             </Button>
@@ -455,77 +491,55 @@ const ECPro = () => {
         </div>
       </section>
 
-      {/* Customer Cases Section - Like infimind design */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-7xl">
+      {/* Customer Cases Section - Gray background like screenshot */}
+      <section className="py-16 bg-[#F8F9FA]">
+        <div className="container mx-auto px-6 max-w-6xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-10"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
               客户案例
             </h2>
           </motion.div>
 
-          {/* Logo tabs row */}
-          <div className="flex justify-center items-center gap-6 mb-12 flex-wrap">
-            {customerCases.map((caseItem, index) => (
-              <motion.button
-                key={caseItem.name}
-                onClick={() => setCurrentCase(index)}
-                whileHover={{ scale: 1.02 }}
-                className={`px-6 py-3 rounded-lg transition-all ${
-                  currentCase === index 
-                    ? "bg-slate-100 shadow-sm" 
-                    : "hover:bg-slate-50"
-                }`}
-              >
-                <img 
-                  src={caseItem.logo} 
-                  alt={caseItem.name}
-                  className={`h-8 w-auto object-contain transition-opacity ${
-                    currentCase === index ? "opacity-100" : "opacity-60"
-                  }`}
-                />
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Case content - two column layout like infimind */}
-          <div className="relative max-w-6xl mx-auto">
+          {/* Case content - two column layout */}
+          <div className="relative max-w-5xl mx-auto mb-12">
             <motion.div
               key={currentCase}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
-              className="grid md:grid-cols-2 gap-12 items-center"
+              transition={{ duration: 0.3 }}
+              className="grid md:grid-cols-2 gap-10 items-center"
             >
               {/* Left - Text content */}
-              <div className="space-y-6 order-2 md:order-1">
-                <img 
-                  src={customerCases[currentCase].logo} 
-                  alt={customerCases[currentCase].name}
-                  className="h-10 w-auto"
-                />
-                <p className="text-slate-600 leading-relaxed text-base">
+              <div className="space-y-5">
+                <div className="flex items-center gap-3">
+                  <img 
+                    src={customerCases[currentCase].logo} 
+                    alt={customerCases[currentCase].name}
+                    className="h-8 w-auto"
+                  />
+                  <span className="text-slate-400 text-sm">{customerCases[currentCase].name}</span>
+                </div>
+                <p className="text-slate-600 leading-relaxed text-sm">
                   {customerCases[currentCase].description}
                 </p>
                 <Button 
-                  className="bg-[#4F46E5] text-white hover:bg-[#4338CA] rounded-full px-8"
+                  className="bg-[#4F46E5] text-white hover:bg-[#4338CA] rounded-full px-6 py-2 text-sm"
                 >
                   预约演示
                 </Button>
               </div>
 
               {/* Right - Case image */}
-              <div className="order-1 md:order-2">
+              <div>
                 <img 
                   src={customerCases[currentCase].image} 
                   alt={customerCases[currentCase].name}
-                  className="w-full h-auto rounded-xl shadow-lg"
+                  className="w-full h-auto rounded-lg shadow-sm"
                 />
               </div>
             </motion.div>
@@ -533,68 +547,99 @@ const ECPro = () => {
             {/* Navigation arrows */}
             <button 
               onClick={prevCase}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-16 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-slate-50 transition-colors border border-slate-100"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors"
             >
-              <ChevronLeft className="w-6 h-6 text-slate-600" />
+              <ChevronLeft className="w-5 h-5 text-slate-400" />
             </button>
             <button 
               onClick={nextCase}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-16 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-slate-50 transition-colors border border-slate-100"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors"
             >
-              <ChevronRight className="w-6 h-6 text-slate-600" />
+              <ChevronRight className="w-5 h-5 text-slate-400" />
             </button>
+          </div>
+
+          {/* Brand logos grid - exactly like screenshot */}
+          <div className="border-t border-slate-200 pt-8">
+            <div className="grid grid-cols-9 gap-4 mb-4">
+              {[
+                "MO&Co.", "JNBY", "O.L.E仟叶", "G2000", "VICUTU", "MM", "i.t", "Stussy", "DIKENI"
+              ].map((brand, i) => (
+                <div key={i} className="flex items-center justify-center py-3 px-2 bg-white rounded border border-slate-100 hover:shadow-sm transition-shadow">
+                  <span className="text-xs text-slate-600 font-medium truncate">{brand}</span>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-9 gap-4">
+              {[
+                "balabala", "BSX", "PAMAX", "Lang", "A", "SCOFILD", "YOWHAY", "Roem", ""
+              ].map((brand, i) => (
+                <div key={i} className={`flex items-center justify-center py-3 px-2 bg-white rounded border border-slate-100 hover:shadow-sm transition-shadow ${!brand && 'opacity-0'}`}>
+                  <span className="text-xs text-slate-600 font-medium truncate">{brand}</span>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-9 gap-4 mt-4">
+              {[
+                "", "", "LANDI", "Song of Song", "YINER音儿", "Annil", "Baleno", "MEILNI", "MIID"
+              ].map((brand, i) => (
+                <div key={i} className={`flex items-center justify-center py-3 px-2 bg-white rounded border border-slate-100 hover:shadow-sm transition-shadow ${!brand && 'opacity-0'}`}>
+                  <span className="text-xs text-slate-600 font-medium truncate">{brand}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Data Section - Like infimind with same styling */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-6 max-w-5xl">
+      {/* Data Section - White background like screenshot */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <h2 className="text-2xl md:text-3xl font-medium text-slate-700 mb-3">
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">
               数据提升
             </h2>
-            <p className="text-slate-500">
+            <p className="text-slate-500 text-sm">
               3分钟录入 10s生成 1键上架
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="grid grid-cols-2 gap-6 mb-10">
             {[
-              { label: "制作效率", value: 20, unit: "倍", desc: "平均3分钟/款", color: "text-[#4F46E5]" },
-              { label: "商品上新效率", value: 10, unit: "倍", desc: "平均制作+上新10分钟/款", color: "text-[#4F46E5]" },
-              { label: "人力成本降低", value: 30, unit: "%", desc: "无淡旺季压力，简化流程", color: "text-[#F97316]" },
-              { label: "转化率", value: 30, unit: "%", desc: "", color: "text-[#22C55E]" },
+              { label: "生产效率", value: 20, unit: "倍", desc: "平均3分钟/款", color: "text-[#4F46E5]" },
+              { label: "商品上新效率", value: 10, unit: "倍", desc: "单次制作+上新10分钟/款", color: "text-[#4F46E5]" },
+              { label: "人力成本降低", value: 30, unit: "%", desc: "无淡旺季压力，简化流程", color: "text-[#F59E0B]" },
+              { label: "转化率", value: 30, unit: "%", desc: "无需专业修图技能", color: "text-[#10B981]" },
             ].map((item, index) => (
               <motion.div
                 key={item.label}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-8 shadow-sm border border-slate-100"
+                transition={{ delay: index * 0.08 }}
+                className="bg-slate-50 rounded-xl p-6"
               >
-                <p className="text-slate-500 text-sm mb-2">{item.label}</p>
-                <p className={`text-5xl font-bold ${item.color}`}>
-                  <AnimatedNumber value={item.value} suffix={item.unit} duration={1.5} />
-                </p>
-                {item.desc && (
-                  <p className="text-slate-400 text-sm mt-2">{item.desc}</p>
-                )}
+                <p className="text-slate-500 text-xs mb-1">{item.label}</p>
+                <div className="flex items-baseline gap-1">
+                  <span className={`text-4xl font-bold ${item.color}`}>
+                    <AnimatedNumber value={item.value} suffix="" duration={1.2} />
+                  </span>
+                  <span className={`text-lg ${item.color}`}>{item.unit}</span>
+                  <span className="text-emerald-500 text-sm ml-1">↑</span>
+                </div>
+                <p className="text-slate-400 text-xs mt-1">{item.desc}</p>
               </motion.div>
             ))}
           </div>
 
           <div className="text-center">
             <Button 
-              size="lg"
-              className="bg-[#4F46E5] text-white hover:bg-[#4338CA] rounded-full px-12 py-6 text-lg shadow-lg"
+              className="bg-[#4F46E5] text-white hover:bg-[#4338CA] rounded-full px-8 py-2.5 text-sm"
             >
               立即试用
             </Button>
@@ -602,29 +647,21 @@ const ECPro = () => {
         </div>
       </section>
 
-      {/* Final CTA Section - Blue gradient like original */}
-      <section className="py-24 bg-gradient-to-br from-[#4F46E5] via-[#5B4EE8] to-[#6366F1] relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-10 right-10 w-64 h-64 border border-white/10 rounded-full" />
-          <div className="absolute bottom-10 left-10 w-48 h-48 border border-white/10 rounded-full" />
-        </div>
-
-        <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
+      {/* Final CTA Section - Blue gradient like screenshot */}
+      <section className="py-16 bg-gradient-to-r from-[#4F46E5] to-[#6366F1]">
+        <div className="container mx-auto px-6 max-w-4xl text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="space-y-6"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
               快速开启您的数字化增长之路
             </h2>
             
             <Button 
-              size="lg"
-              className="bg-white text-[#4F46E5] hover:bg-slate-100 rounded-full px-12 py-6 text-lg font-medium shadow-xl"
+              className="bg-transparent border border-white text-white hover:bg-white hover:text-[#4F46E5] rounded-full px-8 py-2.5 text-sm transition-all"
             >
               预约演示
             </Button>
