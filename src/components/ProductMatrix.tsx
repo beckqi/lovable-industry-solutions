@@ -15,7 +15,7 @@ const IconPhotoMagic = () => (
 );
 
 const IconYiShangHuo = () => (
-  <img src={yishanghuoIcon} alt="易尚货" className="w-full h-full object-contain" />
+  <img src={yishanghuoIcon} alt="易尚货" className="w-[200%] h-[200%] object-contain" />
 );
 
 const IconICut = () => (
