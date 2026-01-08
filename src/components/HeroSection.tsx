@@ -1,12 +1,41 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.png";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [displayedText1, setDisplayedText1] = useState("");
+  const [displayedText2, setDisplayedText2] = useState("");
+  
+  const fullText1 = "AI重新定义";
+  const fullText2 = "产品生产力";
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Typewriter effect for first line
+    let index1 = 0;
+    const timer1 = setInterval(() => {
+      if (index1 <= fullText1.length) {
+        setDisplayedText1(fullText1.slice(0, index1));
+        index1++;
+      } else {
+        clearInterval(timer1);
+        // Start second line after first completes
+        let index2 = 0;
+        const timer2 = setInterval(() => {
+          if (index2 <= fullText2.length) {
+            setDisplayedText2(fullText2.slice(0, index2));
+            index2++;
+          } else {
+            clearInterval(timer2);
+          }
+        }, 120);
+      }
+    }, 120);
+
+    return () => clearInterval(timer1);
   }, []);
 
   return (
@@ -27,10 +56,19 @@ const HeroSection = () => {
           }`}
         >
           <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-white tracking-tight leading-[1.1]">
-            <span className="font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">AI</span>重新定义
+            <span className="font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+              {displayedText1.slice(0, 2)}
+            </span>
+            {displayedText1.slice(2)}
+            <motion.span 
+              className="inline-block w-[3px] h-[0.9em] bg-white ml-1 align-middle"
+              animate={{ opacity: [1, 0] }}
+              transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
+              style={{ display: displayedText2.length === fullText2.length ? 'none' : 'inline-block' }}
+            />
           </span>
           <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-white tracking-tight leading-[1.1] mt-2">
-            产品生产力
+            {displayedText2}
           </span>
         </h1>
 
