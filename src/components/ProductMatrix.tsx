@@ -206,7 +206,7 @@ const ProductMatrix = () => {
                 loop
                 muted
                 playsInline
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[70%] w-auto object-cover rounded-lg z-10"
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-auto object-cover rounded-lg z-10"
                 src={yishanghuoBg}
               />
             )}
