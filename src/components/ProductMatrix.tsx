@@ -202,7 +202,7 @@ const ProductMatrix = () => {
                 loop
                 muted
                 playsInline
-                className="absolute left-0 top-0 h-full w-1/2 object-cover object-left z-0"
+                className="absolute left-8 top-1/2 -translate-y-1/2 h-[70%] w-auto object-cover rounded-lg z-10"
                 src={yishanghuoBg}
               />
             )}
