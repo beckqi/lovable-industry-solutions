@@ -509,7 +509,7 @@ const ECPro = () => {
           </motion.div>
 
           {/* Case content - two column layout */}
-          <div className="relative max-w-5xl mx-auto mb-12 overflow-hidden">
+          <div className="relative max-w-5xl mx-auto mb-12">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={currentCase}
