@@ -5,6 +5,8 @@ const caseStudies = [
   { id: "fashion", industry: "服装鞋帽", company: "太平鸟", logo: "TPB", painPoints: ["传统拍摄周期长、成本高"], solutions: ["使用 AGI Ecpro 一键生成多场景模特图"], metrics: [{ value: "80%", label: "拍摄周期缩短" }, { value: "5x", label: "人效提升" }], gradient: "from-slate-50/80 via-blue-50/40 to-indigo-50/30" },
   { id: "beauty", industry: "美妆个护", company: "百丽", logo: "BL", painPoints: ["产品图精修耗时长"], solutions: ["智能修图功能自动优化产品质感"], metrics: [{ value: "300%", label: "修图效率提升" }, { value: "25%", label: "点击率提升" }], gradient: "from-slate-50/80 via-rose-50/30 to-pink-50/20" },
   { id: "sports", industry: "运动户外", company: "安踏", logo: "AT", painPoints: ["运动场景拍摄成本高"], solutions: ["AI 运动场景生成"], metrics: [{ value: "70%", label: "拍摄成本降低" }, { value: "2x", label: "上新效率提升" }], gradient: "from-slate-50/80 via-emerald-50/30 to-teal-50/20" },
+  { id: "home", industry: "家居家装", company: "林氏木业", logo: "LS", painPoints: ["家具场景图拍摄布景复杂"], solutions: ["AI 生成多风格家居场景图"], metrics: [{ value: "60%", label: "场景成本降低" }, { value: "3x", label: "场景数量提升" }], gradient: "from-slate-50/80 via-amber-50/30 to-orange-50/20" },
+  { id: "food", industry: "食品饮料", company: "三只松鼠", logo: "SZS", painPoints: ["节日营销图设计周期紧"], solutions: ["AI 快速生成节日主题包装视觉"], metrics: [{ value: "90%", label: "设计周期缩短" }, { value: "4x", label: "营销素材产出" }], gradient: "from-slate-50/80 via-yellow-50/30 to-lime-50/20" },
 ];
 
 const CaseStudies = () => {
