@@ -30,9 +30,11 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo - Cohere style simple text */}
+        {/* Logo - white text on purple background */}
         <a href="/" className="flex items-center gap-2 group">
-          <span className="font-semibold text-xl text-foreground tracking-tight">
+          <span className={`font-semibold text-xl tracking-tight transition-colors duration-300 ${
+            isScrolled ? "text-foreground" : "text-white"
+          }`}>
             infimind
           </span>
         </a>
@@ -48,7 +50,9 @@ const Navbar = () => {
             >
               {link.hasDropdown ? (
                 <button
-                  className="nav-link relative py-2 flex items-center gap-1"
+                  className={`relative py-2 flex items-center gap-1 transition-colors duration-300 hover:opacity-80 ${
+                    isScrolled ? "text-foreground" : "text-white"
+                  }`}
                 >
                   {link.label}
                   <ChevronDown 
@@ -60,10 +64,12 @@ const Navbar = () => {
               ) : (
                 <a
                   href={link.href}
-                  className="nav-link relative py-2"
+                  className={`relative py-2 transition-colors duration-300 hover:opacity-80 ${
+                    isScrolled ? "text-foreground" : "text-white"
+                  }`}
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full" />
                 </a>
               )}
               
@@ -72,14 +78,20 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* CTA Button - Cohere style */}
+        {/* CTA Button */}
         <div className="hidden md:flex items-center gap-4">
-          <a href="#" className="nav-link">
+          <a href="#" className={`transition-colors duration-300 hover:opacity-80 ${
+            isScrolled ? "text-foreground" : "text-white"
+          }`}>
             登录
           </a>
           <Button 
             size="default"
-            className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-6"
+            className={`rounded-full px-6 transition-all duration-300 ${
+              isScrolled 
+                ? "bg-foreground text-background hover:bg-foreground/90" 
+                : "bg-white text-[#6366f1] hover:bg-white/90"
+            }`}
           >
             预约演示
           </Button>
@@ -87,7 +99,9 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className={`md:hidden p-2 transition-colors duration-300 ${
+            isScrolled ? "text-foreground" : "text-white"
+          }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
