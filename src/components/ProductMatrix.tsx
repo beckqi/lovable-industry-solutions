@@ -73,6 +73,7 @@ const products = [
     name: "易尚货",
     subtitle: "智能选品平台",
     description: "AI驱动的电商选品与趋势分析平台，精准洞察市场机会",
+    bgColor: "#ECEEF2",
   },
   {
     id: "icut",
@@ -151,8 +152,7 @@ const ProductMatrix = () => {
   };
   
   // Background sequence: #FFFFFF → #F7F8F9 → #FFFFFF → #F7F8F9 → #FFFFFF
-  const bgColors = ["#FFFFFF", "#F7F8F9", "#FFFFFF", "#F7F8F9", "#FFFFFF"];
-  const currentBg = bgColors[activeIndex];
+  const currentBg = activeProduct.bgColor || (activeIndex % 2 === 0 ? "#FFFFFF" : "#F7F8F9");
 
   return (
     <div
@@ -202,7 +202,7 @@ const ProductMatrix = () => {
                 loop
                 muted
                 playsInline
-                className="absolute left-8 top-1/2 -translate-y-1/2 h-[70%] w-auto object-cover rounded-lg z-10"
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[70%] w-auto object-cover rounded-lg z-10"
                 src={yishanghuoBg}
               />
             )}
