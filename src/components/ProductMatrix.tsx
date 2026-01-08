@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import yishanghuoIcon from "@/assets/yishanghuo-icon.gif";
 // Custom geometric line art icons for products
 const IconPhotoMagic = () => (
@@ -136,6 +137,20 @@ const ProductMatrix = () => {
   }, [activeIndex, isAnimating, isHovering]);
 
   const activeProduct = products[activeIndex];
+
+  const goToPrev = () => {
+    if (isAnimating || activeIndex === 0) return;
+    setIsAnimating(true);
+    setActiveIndex(activeIndex - 1);
+    setTimeout(() => setIsAnimating(false), 1000);
+  };
+
+  const goToNext = () => {
+    if (isAnimating || activeIndex === products.length - 1) return;
+    setIsAnimating(true);
+    setActiveIndex(activeIndex + 1);
+    setTimeout(() => setIsAnimating(false), 1000);
+  };
   
   // Background sequence: #FFFFFF → #F7F8F9 → #FFFFFF → #F7F8F9 → #FFFFFF
   const bgColors = ["#FFFFFF", "#F7F8F9", "#FFFFFF", "#F7F8F9", "#FFFFFF"];
@@ -228,6 +243,24 @@ const ProductMatrix = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Navigation Arrows */}
+        <div className="absolute bottom-8 left-8 flex items-center gap-3">
+          <button
+            onClick={goToPrev}
+            disabled={activeIndex === 0}
+            className="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:border-slate-500 hover:text-slate-700 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={goToNext}
+            disabled={activeIndex === products.length - 1}
+            className="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:border-slate-500 hover:text-slate-700 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
 
         {/* Bottom Right Indicator */}
