@@ -77,16 +77,16 @@ const ProductsMegaMenu = ({ isOpen }: ProductsMegaMenuProps) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[680px] bg-white rounded-2xl shadow-2xl shadow-black/10 border border-slate-100 overflow-hidden z-50 relative"
+          className="absolute top-full left-0 mt-2 w-[680px] bg-white rounded-2xl shadow-2xl shadow-black/10 border border-slate-100 overflow-hidden z-50"
         >
-          {/* Decorative background image */}
+          {/* Decorative background image - lowest z-index */}
           <img 
             src={menuDecoration} 
             alt="" 
-            className="absolute bottom-0 right-0 w-48 h-48 object-cover opacity-20 pointer-events-none"
+            className="absolute bottom-0 right-0 w-48 h-48 object-cover opacity-15 pointer-events-none z-0"
           />
-          {/* Menu Content */}
-          <div className="p-8 grid grid-cols-2 gap-8">
+          {/* Menu Content - above decoration */}
+          <div className="relative z-10 p-8 grid grid-cols-2 gap-8">
             {/* Left Column */}
             <div>
               <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
