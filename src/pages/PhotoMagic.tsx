@@ -2,9 +2,10 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Users, ImageIcon, Wand2, Upload, Palette, Zap, Check } from "lucide-react";
+import { ArrowRight, Sparkles, Wand2, Upload, Palette, Zap } from "lucide-react";
 import productFlat from "@/assets/product-flat.png";
 import productModel from "@/assets/product-model.png";
+import PhotoMagicStickyScroll from "@/components/PhotoMagicStickyScroll";
 
 const PhotoMagic = () => {
   return (
@@ -146,167 +147,11 @@ const PhotoMagic = () => {
         </div>
       </section>
 
-      {/* Module 1: AI Model Generation */}
-      <section className="py-20 md:py-28 bg-slate-50/50">
-        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left - Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-6"
-            >
-              <span className="inline-block text-sm font-medium tracking-widest uppercase text-violet-600">
-                AI 模特生成
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 leading-tight">
-                海量数字模特
-                <br />
-                <span className="text-slate-500">无需跟拍策划</span>
-              </h2>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                内置百余位不同国籍、肤色、年龄的数字模特，完美匹配全球审美，彻底告别高昂的模特与摄影棚开支。
-              </p>
-              <ul className="space-y-3">
-                {["亚洲 / 欧美 / 多元化模特库", "可定制年龄、体型、风格", "支持品牌专属模特训练"].map((feature) => (
-                  <li key={feature} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-violet-100 flex items-center justify-center">
-                      <Check className="w-3 h-3 text-violet-600" />
-                    </div>
-                    <span className="text-slate-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Right - Visual */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 p-6 border border-slate-100">
-                <div className="flex items-center gap-2 mb-4">
-                  <Users className="w-5 h-5 text-violet-500" />
-                  <span className="text-sm font-medium text-slate-700">选择模特</span>
-                </div>
-                <div className="grid grid-cols-4 gap-3">
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                    <motion.div
-                      key={i}
-                      whileHover={{ scale: 1.05 }}
-                      className={`aspect-square rounded-xl bg-gradient-to-br ${
-                        i === 3 ? "from-violet-100 to-violet-200 ring-2 ring-violet-400" : "from-slate-100 to-slate-200"
-                      } flex items-center justify-center cursor-pointer transition-all`}
-                    >
-                      <div className={`w-8 h-8 rounded-full ${i === 3 ? "bg-violet-300" : "bg-slate-300"}`} />
-                    </motion.div>
-                  ))}
-                </div>
-                <div className="mt-4 flex gap-2">
-                  {["亚洲女性", "欧美女性", "亚洲男性"].map((label, idx) => (
-                    <span
-                      key={label}
-                      className={`px-3 py-1.5 rounded-full text-xs font-medium ${
-                        idx === 0 ? "bg-violet-100 text-violet-700" : "bg-slate-100 text-slate-600"
-                      }`}
-                    >
-                      {label}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Module 2: Virtual Studio - Scene Replacement */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left - Visual */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="order-2 lg:order-1"
-            >
-              <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-6 shadow-lg">
-                <div className="flex items-center gap-2 mb-4">
-                  <ImageIcon className="w-5 h-5 text-blue-500" />
-                  <span className="text-sm font-medium text-slate-700">场景切换</span>
-                </div>
-                <div className="relative">
-                  <div className="aspect-[4/3] rounded-xl overflow-hidden bg-white shadow-sm">
-                    <img 
-                      src={productModel} 
-                      alt="Scene demo" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  {/* Scene Thumbnails */}
-                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-white rounded-full p-2 shadow-lg">
-                    {[
-                      { label: "客厅", color: "bg-amber-100" },
-                      { label: "街道", color: "bg-slate-200", active: true },
-                      { label: "影棚", color: "bg-violet-100" },
-                    ].map((scene) => (
-                      <motion.div
-                        key={scene.label}
-                        whileHover={{ scale: 1.1 }}
-                        className={`w-12 h-12 rounded-full ${scene.color} flex items-center justify-center cursor-pointer ${
-                          scene.active ? "ring-2 ring-blue-400" : ""
-                        }`}
-                      >
-                        <span className="text-xs font-medium text-slate-600">{scene.label}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right - Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="space-y-6 order-1 lg:order-2"
-            >
-              <span className="inline-block text-sm font-medium tracking-widest uppercase text-blue-600">
-                智能场景替换
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 leading-tight">
-                任意场景
-                <br />
-                <span className="text-slate-500">秒间切换</span>
-              </h2>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                只需上传商品平铺图，即可智能识别商品类目与轮廓，自动生成与其调性相符的专业室内或户外场景，光影效果真实细腻。
-              </p>
-              <ul className="space-y-3">
-                {["智能商品轮廓识别", "100+ 预设专业场景模板", "自定义上传场景图片"].map((feature) => (
-                  <li key={feature} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center">
-                      <Check className="w-3 h-3 text-blue-600" />
-                    </div>
-                    <span className="text-slate-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* Immersive Sticky Scroll Module */}
+      <PhotoMagicStickyScroll />
 
       {/* Module 3: Simplified Workflow */}
-      <section className="py-20 md:py-28 bg-slate-50/50">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -353,7 +198,7 @@ const PhotoMagic = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative text-center p-8 rounded-2xl bg-white border border-slate-100 hover:border-slate-200 hover:shadow-lg transition-all duration-300"
+                className="relative text-center p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-slate-200 hover:shadow-lg transition-all duration-300"
               >
                 <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 ${
                   item.color === "violet" ? "bg-violet-100 text-violet-600" :
@@ -379,7 +224,7 @@ const PhotoMagic = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-slate-50">
         <div className="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
