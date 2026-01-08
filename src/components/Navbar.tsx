@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import ProductsMegaMenu from "./ProductsMegaMenu";
 
 const navLinks = [
-  { label: "产品介绍", href: "#products" },
-  { label: "行业解决方案", href: "#solutions" },
-  { label: "客户案例", href: "#cases" },
-  { label: "关于我们", href: "#about" },
+  { label: "产品介绍", href: "#products", hasDropdown: true },
+  { label: "行业解决方案", href: "#solutions", hasDropdown: false },
+  { label: "客户案例", href: "#cases", hasDropdown: false },
+  { label: "关于我们", href: "#about", hasDropdown: false },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,14 +40,35 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <div
               key={link.href}
-              href={link.href}
-              className="nav-link relative py-2"
+              className="relative"
+              onMouseEnter={() => link.hasDropdown && setIsProductsMenuOpen(true)}
+              onMouseLeave={() => link.hasDropdown && setIsProductsMenuOpen(false)}
             >
-              {link.label}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-            </a>
+              {link.hasDropdown ? (
+                <button
+                  className="nav-link relative py-2 flex items-center gap-1"
+                >
+                  {link.label}
+                  <ChevronDown 
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      isProductsMenuOpen ? "rotate-180" : ""
+                    }`} 
+                  />
+                </button>
+              ) : (
+                <a
+                  href={link.href}
+                  className="nav-link relative py-2"
+                >
+                  {link.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </a>
+              )}
+              
+              {link.hasDropdown && <ProductsMegaMenu isOpen={isProductsMenuOpen} />}
+            </div>
           ))}
         </div>
 
