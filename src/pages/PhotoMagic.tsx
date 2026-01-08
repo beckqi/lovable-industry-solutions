@@ -1,11 +1,46 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Wand2, Upload, Palette, Zap } from "lucide-react";
+import { ArrowRight, Sparkles, Wand2 } from "lucide-react";
 import productFlat from "@/assets/product-flat.png";
 import productModel from "@/assets/product-model.png";
 import PhotoMagicStickyScroll from "@/components/PhotoMagicStickyScroll";
+
+// Animated counter component
+const AnimatedNumber = ({ value, suffix = "", duration = 2 }: { value: number; suffix?: string; duration?: number }) => {
+  const [displayValue, setDisplayValue] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          const controls = animate(0, value, {
+            duration,
+            ease: "easeOut",
+            onUpdate: (v) => setDisplayValue(Math.round(v)),
+          });
+          return () => controls.stop();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value, duration, hasAnimated]);
+
+  return (
+    <span ref={ref}>
+      {displayValue}
+      <span className="text-xl text-slate-500">{suffix}</span>
+    </span>
+  );
+};
 
 const PhotoMagic = () => {
   return (
@@ -169,78 +204,137 @@ const PhotoMagic = () => {
             {[
               { 
                 label: "人力成本降低", 
-                value: "90", 
+                value: 90, 
                 unit: "%",
                 desc: "无需专业美工修图",
                 trend: "down",
-                color: "rose"
               },
               { 
                 label: "商品拍摄成本", 
-                value: "80", 
+                value: 80, 
                 unit: "%",
                 desc: "无需拍摄模特图",
                 trend: "down",
-                color: "rose"
               },
               { 
                 label: "图片制作效率", 
-                value: "30", 
+                value: 30, 
                 unit: "倍",
                 desc: "平均10秒/张",
                 trend: "up",
-                color: "emerald"
               },
               { 
                 label: "转化率", 
-                value: "30", 
+                value: 30, 
                 unit: "%",
                 desc: "",
                 trend: "up",
-                color: "emerald"
               },
             ].map((item, index) => (
               <motion.div
                 key={item.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-50 to-blue-50/30 border border-slate-100 overflow-hidden"
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.15,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                whileHover={{ 
+                  y: -5, 
+                  boxShadow: "0 20px 40px -15px rgba(0,0,0,0.1)",
+                  transition: { duration: 0.3 }
+                }}
+                className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-50 to-blue-50/30 border border-slate-100 overflow-hidden cursor-default"
               >
-                {/* Background decoration */}
+                {/* Animated background decoration */}
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-10">
                   <svg width="120" height="80" viewBox="0 0 120 80" fill="none">
-                    <path d="M10 70 L40 30 L70 50 L110 10" stroke="currentColor" strokeWidth="3" className="text-blue-500" />
-                    <circle cx="110" cy="10" r="4" fill="currentColor" className="text-blue-500" />
+                    <motion.path 
+                      d="M10 70 L40 30 L70 50 L110 10" 
+                      stroke="currentColor" 
+                      strokeWidth="3" 
+                      className="text-blue-500"
+                      initial={{ pathLength: 0 }}
+                      whileInView={{ pathLength: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, delay: 0.5 + index * 0.2 }}
+                    />
+                    <motion.circle 
+                      cx="110" 
+                      cy="10" 
+                      r="4" 
+                      fill="currentColor" 
+                      className="text-blue-500"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 1.5 + index * 0.2 }}
+                    />
                   </svg>
                 </div>
 
-                <div className="text-sm text-slate-500 mb-2">{item.label}</div>
+                <motion.div 
+                  className="text-sm text-slate-500 mb-2"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                >
+                  {item.label}
+                </motion.div>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-5xl md:text-6xl font-bold text-slate-800">{item.value}</span>
-                  <span className="text-xl text-slate-500">{item.unit}</span>
-                  {item.trend === "down" ? (
-                    <span className="ml-1 text-rose-500">↓</span>
-                  ) : (
-                    <span className="ml-1 text-emerald-500">↑</span>
-                  )}
+                  <span className="text-5xl md:text-6xl font-bold text-slate-800">
+                    <AnimatedNumber value={item.value} suffix={item.unit} duration={1.5 + index * 0.2} />
+                  </span>
+                  <motion.span 
+                    className={`ml-2 text-2xl ${item.trend === "down" ? "text-rose-500" : "text-emerald-500"}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
+                    animate={{ 
+                      y: item.trend === "down" ? [0, 3, 0] : [0, -3, 0]
+                    }}
+                  >
+                    {item.trend === "down" ? "↓" : "↑"}
+                  </motion.span>
                 </div>
                 {item.desc && (
-                  <div className="text-sm text-slate-500 mt-2">{item.desc}</div>
+                  <motion.div 
+                    className="text-sm text-slate-500 mt-2"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                  >
+                    {item.desc}
+                  </motion.div>
                 )}
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center">
-            <Button 
-              size="lg"
-              className="bg-violet-600 text-white hover:bg-violet-700 rounded-full px-12 py-6 text-lg shadow-lg shadow-violet-200"
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
             >
-              立即试用
-            </Button>
-          </div>
+              <Button 
+                size="lg"
+                className="bg-violet-600 text-white hover:bg-violet-700 rounded-full px-12 py-6 text-lg shadow-lg shadow-violet-200 transition-all duration-300"
+              >
+                立即试用
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
