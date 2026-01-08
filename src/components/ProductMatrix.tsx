@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import yishanghuoIcon from "@/assets/yishanghuo-icon.gif";
 // Custom geometric line art icons for products
 const IconPhotoMagic = () => (
   <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
@@ -15,16 +15,7 @@ const IconPhotoMagic = () => (
 );
 
 const IconYiShangHuo = () => (
-  <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
-    <rect x="20" y="30" width="80" height="65" rx="4" />
-    <line x1="20" y1="50" x2="100" y2="50" />
-    <rect x="30" y="60" width="25" height="25" rx="2" />
-    <rect x="65" y="60" width="25" height="25" rx="2" />
-    <circle cx="42.5" cy="72.5" r="6" />
-    <circle cx="77.5" cy="72.5" r="6" />
-    <path d="M35 30 L35 20 L85 20 L85 30" />
-    <line x1="60" y1="20" x2="60" y2="30" />
-  </svg>
+  <img src={yishanghuoIcon} alt="易尚货" className="w-full h-full object-contain" />
 );
 
 const IconICut = () => (
