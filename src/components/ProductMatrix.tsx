@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import yishanghuoIcon from "@/assets/yishanghuo-icon.gif";
+import yishanghuoBg from "@/assets/yishanghuo-bg.mp4";
 // Custom geometric line art icons for products
 const IconPhotoMagic = () => (
   <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
@@ -15,9 +15,7 @@ const IconPhotoMagic = () => (
   </svg>
 );
 
-const IconYiShangHuo = () => (
-  <img src={yishanghuoIcon} alt="易尚货" className="w-full h-full object-cover" />
-);
+const IconYiShangHuo = () => null;
 
 const IconICut = () => (
   <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
@@ -188,6 +186,24 @@ const ProductMatrix = () => {
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover z-0"
                 src="/videos/icut-bg.mov"
+              />
+            )}
+          </AnimatePresence>
+          {/* Video Background for YiShangHuo */}
+          <AnimatePresence>
+            {activeProduct.id === "yishanghuo" && (
+              <motion.video
+                key="yishanghuo-video"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8 }}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute left-0 top-0 h-full w-1/2 object-cover object-left z-0"
+                src={yishanghuoBg}
               />
             )}
           </AnimatePresence>
