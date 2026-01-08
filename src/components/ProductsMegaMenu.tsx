@@ -147,19 +147,6 @@ const ProductsMegaMenu = ({ isOpen }: ProductsMegaMenuProps) => {
                   </motion.a>
                 ))}
               </div>
-
-              {/* CTA in menu */}
-              <div className="mt-6 pt-6 border-t border-slate-100">
-                <a
-                  href="#demo"
-                  className="flex items-center justify-center gap-2 w-full py-3 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-colors font-medium text-sm"
-                >
-                  查看全部产品
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-              </div>
             </div>
           </div>
         </motion.div>
