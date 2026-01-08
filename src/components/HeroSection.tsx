@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import heroBg from "@/assets/hero-bg.png";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,7 +10,14 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden bg-background">
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      {/* Dark overlay 45% opacity */}
+      <div className="absolute inset-0 bg-black/45" />
       {/* Main content - centered like Cohere */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6">
         {/* Main headline - Cohere style elegant serif */}
@@ -18,17 +26,17 @@ const HeroSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal text-foreground tracking-tight leading-[1.1]" style={{ fontFamily: "'Times New Roman', 'Noto Serif SC', serif" }}>
+          <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal text-white tracking-tight leading-[1.1]" style={{ fontFamily: "'Times New Roman', 'Noto Serif SC', serif" }}>
             Your next breakthrough,
           </span>
-          <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground tracking-tight leading-[1.1] mt-2" style={{ fontFamily: "'Times New Roman', 'Noto Serif SC', serif" }}>
+          <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-tight leading-[1.1] mt-2" style={{ fontFamily: "'Times New Roman', 'Noto Serif SC', serif" }}>
             powered by AI
           </span>
         </h1>
 
         {/* Subtitle - Cohere style */}
         <p
-          className={`text-center text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed mb-10 transition-all duration-1000 delay-200 ${
+          className={`text-center text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed mb-10 transition-all duration-1000 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -43,11 +51,11 @@ const HeroSection = () => {
         >
           <Button
             size="lg"
-            className="bg-foreground hover:bg-foreground/90 text-background text-base font-medium px-8 py-6 rounded-full"
+            className="bg-white hover:bg-white/90 text-black text-base font-medium px-8 py-6 rounded-full"
           >
             预约演示
           </Button>
-          <button className="text-foreground text-base font-medium underline underline-offset-4 decoration-foreground/40 hover:decoration-foreground transition-all">
+          <button className="text-white text-base font-medium underline underline-offset-4 decoration-white/40 hover:decoration-white transition-all">
             了解产品
           </button>
         </div>
