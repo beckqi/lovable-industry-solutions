@@ -7,6 +7,7 @@ const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [displayedText1, setDisplayedText1] = useState("");
   const [displayedText2, setDisplayedText2] = useState("");
+  const [typewriterDone, setTypewriterDone] = useState(false);
   
   const fullText1 = "AI重新定义";
   const fullText2 = "产品生产力";
@@ -30,6 +31,7 @@ const HeroSection = () => {
             index2++;
           } else {
             clearInterval(timer2);
+            setTypewriterDone(true);
           }
         }, 120);
       }
@@ -73,19 +75,21 @@ const HeroSection = () => {
         </h1>
 
         {/* Subtitle - Cohere style */}
-        <p
-          className={`text-center text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed mb-10 transition-all duration-1000 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={typewriterDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          className="text-center text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed mb-10"
         >
           为品牌提供商拍、剪辑、管理全链路 AIGC 解决方案 — 让您的工作更智能
-        </p>
+        </motion.p>
 
         {/* CTA Buttons - Cohere style */}
-        <div
-          className={`flex flex-col sm:flex-row items-center gap-4 transition-all duration-1000 delay-400 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={typewriterDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-col sm:flex-row items-center gap-4"
         >
           <Button
             size="lg"
@@ -96,7 +100,7 @@ const HeroSection = () => {
           <button className="text-white text-base font-medium underline underline-offset-4 decoration-white/40 hover:decoration-white transition-all">
             了解产品
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
