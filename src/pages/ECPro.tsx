@@ -1,4 +1,4 @@
-import { motion, animate } from "framer-motion";
+import { motion, animate, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -150,14 +150,17 @@ const brandLogos = [
 const ECPro = () => {
   const [activeFeature, setActiveFeature] = useState(2);
   const [currentCase, setCurrentCase] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('right');
   const [activeTab, setActiveTab] = useState<'detail' | 'resource'>('resource');
   const [currentTemplateSlide, setCurrentTemplateSlide] = useState(0);
 
   const nextCase = () => {
+    setSlideDirection('right');
     setCurrentCase((prev) => (prev + 1) % customerCases.length);
   };
 
   const prevCase = () => {
+    setSlideDirection('left');
     setCurrentCase((prev) => (prev - 1 + customerCases.length) % customerCases.length);
   };
 
@@ -506,43 +509,58 @@ const ECPro = () => {
           </motion.div>
 
           {/* Case content - two column layout */}
-          <div className="relative max-w-5xl mx-auto mb-12">
-            <motion.div
-              key={currentCase}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              className="grid md:grid-cols-2 gap-10 items-center"
-            >
-              {/* Left - Text content */}
-              <div className="space-y-5">
-                <div className="flex items-center gap-3">
-                  <img 
-                    src={customerCases[currentCase].logo} 
-                    alt={customerCases[currentCase].name}
-                    className="h-8 w-auto"
-                  />
-                  <span className="text-slate-400 text-sm">{customerCases[currentCase].name}</span>
+          <div className="relative max-w-5xl mx-auto mb-12 overflow-hidden">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={currentCase}
+                initial={{ 
+                  opacity: 0, 
+                  x: slideDirection === 'right' ? 100 : -100 
+                }}
+                animate={{ 
+                  opacity: 1, 
+                  x: 0 
+                }}
+                exit={{ 
+                  opacity: 0, 
+                  x: slideDirection === 'right' ? -100 : 100 
+                }}
+                transition={{ 
+                  duration: 0.4, 
+                  ease: [0.25, 0.46, 0.45, 0.94] 
+                }}
+                className="grid md:grid-cols-2 gap-10 items-center"
+              >
+                {/* Left - Text content */}
+                <div className="space-y-5">
+                  <div className="flex items-center gap-3">
+                    <img 
+                      src={customerCases[currentCase].logo} 
+                      alt={customerCases[currentCase].name}
+                      className="h-8 w-auto"
+                    />
+                    <span className="text-slate-400 text-sm">{customerCases[currentCase].name}</span>
+                  </div>
+                  <p className="text-slate-600 leading-relaxed text-sm">
+                    {customerCases[currentCase].description}
+                  </p>
+                  <Button 
+                    className="bg-[#4F46E5] text-white hover:bg-[#4338CA] rounded-full px-6 py-2 text-sm"
+                  >
+                    预约演示
+                  </Button>
                 </div>
-                <p className="text-slate-600 leading-relaxed text-sm">
-                  {customerCases[currentCase].description}
-                </p>
-                <Button 
-                  className="bg-[#4F46E5] text-white hover:bg-[#4338CA] rounded-full px-6 py-2 text-sm"
-                >
-                  预约演示
-                </Button>
-              </div>
 
-              {/* Right - Case image */}
-              <div>
-                <img 
-                  src={customerCases[currentCase].image} 
-                  alt={customerCases[currentCase].name}
-                  className="w-full h-auto rounded-lg shadow-sm"
-                />
-              </div>
-            </motion.div>
+                {/* Right - Case image */}
+                <div>
+                  <img 
+                    src={customerCases[currentCase].image} 
+                    alt={customerCases[currentCase].name}
+                    className="w-full h-auto rounded-lg shadow-sm"
+                  />
+                </div>
+              </motion.div>
+            </AnimatePresence>
 
             {/* Navigation arrows */}
             <button 
