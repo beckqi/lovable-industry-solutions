@@ -150,9 +150,9 @@ const PhotoMagic = () => {
       {/* Immersive Sticky Scroll Module */}
       <PhotoMagicStickyScroll />
 
-      {/* Module 3: Simplified Workflow */}
+      {/* Data Improvement Section */}
       <section className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -160,65 +160,86 @@ const PhotoMagic = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 md:mb-16"
           >
-            <span className="inline-block text-sm font-medium tracking-widest uppercase mb-3 text-slate-500">
-              极简操作流程
-            </span>
-            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900">
-              三步完成 AI 商拍
+            <h2 className="text-2xl md:text-3xl font-medium text-slate-700">
+              省时、省钱、又省力
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
             {[
               { 
-                step: "01", 
-                icon: Upload, 
-                title: "上传图片", 
-                description: "拍摄或上传商品平铺图，支持 JPG/PNG 格式",
-                color: "violet"
+                label: "人力成本降低", 
+                value: "90", 
+                unit: "%",
+                desc: "无需专业美工修图",
+                trend: "down",
+                color: "rose"
               },
               { 
-                step: "02", 
-                icon: Palette, 
-                title: "选择风格", 
-                description: "挑选模特、场景和光影风格，一键预览效果",
-                color: "blue"
+                label: "商品拍摄成本", 
+                value: "80", 
+                unit: "%",
+                desc: "无需拍摄模特图",
+                trend: "down",
+                color: "rose"
               },
               { 
-                step: "03", 
-                icon: Zap, 
-                title: "一键生成", 
-                description: "AI 秒级生成高清模特图，支持批量导出",
+                label: "图片制作效率", 
+                value: "30", 
+                unit: "倍",
+                desc: "平均10秒/张",
+                trend: "up",
+                color: "emerald"
+              },
+              { 
+                label: "转化率", 
+                value: "30", 
+                unit: "%",
+                desc: "",
+                trend: "up",
                 color: "emerald"
               },
             ].map((item, index) => (
               <motion.div
-                key={item.step}
+                key={item.label}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative text-center p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-slate-200 hover:shadow-lg transition-all duration-300"
+                className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-50 to-blue-50/30 border border-slate-100 overflow-hidden"
               >
-                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 ${
-                  item.color === "violet" ? "bg-violet-100 text-violet-600" :
-                  item.color === "blue" ? "bg-blue-100 text-blue-600" :
-                  "bg-emerald-100 text-emerald-600"
-                }`}>
-                  <item.icon className="w-6 h-6" />
+                {/* Background decoration */}
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-10">
+                  <svg width="120" height="80" viewBox="0 0 120 80" fill="none">
+                    <path d="M10 70 L40 30 L70 50 L110 10" stroke="currentColor" strokeWidth="3" className="text-blue-500" />
+                    <circle cx="110" cy="10" r="4" fill="currentColor" className="text-blue-500" />
+                  </svg>
                 </div>
-                <div className="text-xs font-bold text-slate-300 mb-2">{item.step}</div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{item.description}</p>
 
-                {/* Connector Arrow */}
-                {index < 2 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                    <ArrowRight className="w-6 h-6 text-slate-300" />
-                  </div>
+                <div className="text-sm text-slate-500 mb-2">{item.label}</div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-5xl md:text-6xl font-bold text-slate-800">{item.value}</span>
+                  <span className="text-xl text-slate-500">{item.unit}</span>
+                  {item.trend === "down" ? (
+                    <span className="ml-1 text-rose-500">↓</span>
+                  ) : (
+                    <span className="ml-1 text-emerald-500">↑</span>
+                  )}
+                </div>
+                {item.desc && (
+                  <div className="text-sm text-slate-500 mt-2">{item.desc}</div>
                 )}
               </motion.div>
             ))}
+          </div>
+
+          <div className="text-center">
+            <Button 
+              size="lg"
+              className="bg-violet-600 text-white hover:bg-violet-700 rounded-full px-12 py-6 text-lg shadow-lg shadow-violet-200"
+            >
+              立即试用
+            </Button>
           </div>
         </div>
       </section>
