@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import yishanghuoIcon from "@/assets/yishanghuo-icon.gif";
-import icutBgVideo from "@/assets/icut-bg.mov";
 // Custom geometric line art icons for products
 const IconPhotoMagic = () => (
   <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
@@ -173,9 +172,8 @@ const ProductMatrix = () => {
                 muted
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover z-0"
-              >
-                <source src={icutBgVideo} type="video/quicktime" />
-              </motion.video>
+                src="/videos/icut-bg.mov"
+              />
             )}
           </AnimatePresence>
           <div className="container mx-auto px-8 lg:px-16">
