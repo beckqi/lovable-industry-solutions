@@ -547,13 +547,13 @@ const ECPro = () => {
             {/* Navigation arrows */}
             <button 
               onClick={prevCase}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors"
             >
               <ChevronLeft className="w-5 h-5 text-slate-400" />
             </button>
             <button 
               onClick={nextCase}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-slate-50 transition-colors"
             >
               <ChevronRight className="w-5 h-5 text-slate-400" />
             </button>
