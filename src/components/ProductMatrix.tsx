@@ -158,7 +158,7 @@ const ProductMatrix = () => {
   return (
     <div
       ref={containerRef}
-      className="relative h-screen"
+      className="relative h-[70vh]"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
