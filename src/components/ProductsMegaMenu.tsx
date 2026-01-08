@@ -79,11 +79,11 @@ const ProductsMegaMenu = ({ isOpen }: ProductsMegaMenuProps) => {
           transition={{ duration: 0.2, ease: "easeOut" }}
           className="absolute top-full left-0 mt-2 w-[680px] bg-white rounded-2xl shadow-2xl shadow-black/10 border border-slate-100 overflow-hidden z-50"
         >
-          {/* Decorative background image - lowest z-index */}
+          {/* Decorative background image - covers entire menu */}
           <img 
             src={menuDecoration} 
             alt="" 
-            className="absolute bottom-0 right-0 w-48 h-48 object-cover opacity-15 pointer-events-none z-0"
+            className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none z-0"
           />
           {/* Menu Content - above decoration */}
           <div className="relative z-10 p-8 grid grid-cols-2 gap-8">
