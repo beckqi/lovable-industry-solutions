@@ -1,0 +1,238 @@
+import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Custom geometric line art icons for products
+const IconPhotoMagic = () => (
+  <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
+    <rect x="15" y="25" width="90" height="70" rx="4" />
+    <rect x="25" y="35" width="70" height="50" rx="2" />
+    <circle cx="50" cy="55" r="15" />
+    <circle cx="50" cy="55" r="8" />
+    <circle cx="50" cy="55" r="3" fill="currentColor" />
+    <polygon points="75,50 90,70 60,70" strokeLinejoin="round" />
+    <circle cx="80" cy="45" r="5" />
+  </svg>
+);
+
+const IconYiShangHuo = () => (
+  <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
+    <rect x="20" y="30" width="80" height="65" rx="4" />
+    <line x1="20" y1="50" x2="100" y2="50" />
+    <rect x="30" y="60" width="25" height="25" rx="2" />
+    <rect x="65" y="60" width="25" height="25" rx="2" />
+    <circle cx="42.5" cy="72.5" r="6" />
+    <circle cx="77.5" cy="72.5" r="6" />
+    <path d="M35 30 L35 20 L85 20 L85 30" />
+    <line x1="60" y1="20" x2="60" y2="30" />
+  </svg>
+);
+
+const IconICut = () => (
+  <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
+    <circle cx="35" cy="85" r="15" />
+    <circle cx="85" cy="85" r="15" />
+    <circle cx="35" cy="85" r="6" />
+    <circle cx="85" cy="85" r="6" />
+    <line x1="35" y1="70" x2="60" y2="25" />
+    <line x1="85" y1="70" x2="60" y2="25" />
+    <line x1="45" y1="52" x2="75" y2="52" />
+    <polygon points="60,20 55,30 65,30" fill="currentColor" />
+  </svg>
+);
+
+const IconIClip = () => (
+  <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
+    <rect x="15" y="25" width="90" height="55" rx="4" />
+    <rect x="25" y="35" width="70" height="35" rx="2" />
+    <polygon points="50,45 50,62 65,53.5" fill="currentColor" />
+    <rect x="35" y="85" width="50" height="15" rx="2" />
+    <line x1="45" y1="90" x2="45" y2="95" />
+    <line x1="55" y1="90" x2="55" y2="95" />
+    <line x1="65" y1="90" x2="65" y2="95" />
+    <line x1="75" y1="90" x2="75" y2="95" />
+  </svg>
+);
+
+const IconFactory = () => (
+  <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
+    <rect x="15" y="50" width="35" height="55" rx="2" />
+    <rect x="55" y="35" width="50" height="70" rx="2" />
+    <rect x="20" y="20" width="25" height="30" rx="1" />
+    <rect x="65" y="50" width="12" height="18" rx="1" />
+    <rect x="83" y="50" width="12" height="18" rx="1" />
+    <rect x="65" y="75" width="12" height="18" rx="1" />
+    <rect x="83" y="75" width="12" height="18" rx="1" />
+    <ellipse cx="32.5" cy="20" rx="6" ry="10" />
+    <path d="M32.5 10 Q38 5 32.5 0" strokeWidth="0.6" />
+  </svg>
+);
+
+const products = [
+  {
+    id: "photomagic",
+    Icon: IconPhotoMagic,
+    stat: "10x",
+    name: "PhotoMagic",
+    subtitle: "AI商拍工具",
+    description: "一键换脸换背景、极速生成商品场景图，轻松打造专业级电商主图",
+  },
+  {
+    id: "yishanghuo",
+    Icon: IconYiShangHuo,
+    stat: "5000+",
+    name: "易尚货",
+    subtitle: "智能选品平台",
+    description: "AI驱动的电商选品与趋势分析平台，精准洞察市场机会",
+  },
+  {
+    id: "icut",
+    Icon: IconICut,
+    stat: "60s",
+    name: "iCut 直剪",
+    subtitle: "直播切片工具",
+    description: "直播高光时刻自动识别与智能剪辑，快速产出爆款短视频",
+  },
+  {
+    id: "iclip",
+    Icon: IconIClip,
+    stat: "1000+",
+    name: "iClip 易视频",
+    subtitle: "批量剪辑平台",
+    description: "AI驱动的视频批量生产与分发工具，规模化内容产出",
+  },
+  {
+    id: "factory",
+    Icon: IconFactory,
+    stat: "24h",
+    name: "内容工厂",
+    subtitle: "代制作服务",
+    description: "专业团队+AI能力的内容代运营服务，全托管式解决方案",
+  },
+];
+
+const ProductMatrix = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    if (!isHovering) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      // Prevent rapid scrolling during animation
+      if (isAnimating) {
+        e.preventDefault();
+        return;
+      }
+
+      const direction = e.deltaY > 0 ? 1 : -1;
+      const newIndex = activeIndex + direction;
+
+      // Allow normal scroll if at boundaries
+      if (newIndex < 0 || newIndex >= products.length) return;
+
+      e.preventDefault();
+      setIsAnimating(true);
+      setActiveIndex(newIndex);
+
+      // Reset animation lock after transition
+      setTimeout(() => setIsAnimating(false), 1000);
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, [activeIndex, isAnimating, isHovering]);
+
+  const activeProduct = products[activeIndex];
+  
+  // Background sequence: #FFFFFF → #F7F8F9 → #FFFFFF → #F7F8F9 → #FFFFFF
+  const bgColors = ["#FFFFFF", "#F7F8F9", "#FFFFFF", "#F7F8F9", "#FFFFFF"];
+  const currentBg = bgColors[activeIndex];
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative h-screen"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <div className="h-full overflow-hidden">
+        {/* Background with animated transition */}
+        <motion.div
+          className="absolute inset-0"
+          animate={{ backgroundColor: currentBg }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        />
+
+        {/* Main Content */}
+        <div className="relative h-full flex items-center">
+          <div className="container mx-auto px-8 lg:px-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* Left - Large Icon */}
+              <div className="relative flex items-center justify-center">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeIndex + "-icon"}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 text-slate-600"
+                  >
+                    <activeProduct.Icon />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Right - Typography */}
+              <div className="relative">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeIndex + "-text"}
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -40 }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    {/* Giant Stat */}
+                    <div className="text-6xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tighter text-slate-800">
+                      {activeProduct.stat}
+                    </div>
+
+                    {/* Title */}
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mt-4 mb-2">
+                      {activeProduct.name}
+                    </h2>
+
+                    {/* Subtitle */}
+                    <p className="text-base md:text-lg text-slate-600 mb-4">
+                      {activeProduct.subtitle}
+                    </p>
+
+                    {/* Description */}
+                    <p className="text-sm md:text-base text-slate-500 max-w-md leading-relaxed">
+                      {activeProduct.description}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Right Indicator */}
+        <div className="absolute bottom-8 right-8 text-right">
+          <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">
+            产品矩阵
+          </p>
+          <p className="text-sm text-slate-500">
+            {String(activeIndex + 1).padStart(2, "0")} / {String(products.length).padStart(2, "0")}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductMatrix;
