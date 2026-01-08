@@ -85,11 +85,6 @@ const HeroSection = () => {
           <div className="lg:col-span-8 relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-auto lg:min-h-[480px]">
             {/* Cohere-style gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-violet-200 via-pink-100 to-amber-100" />
-            <img
-              src={heroAbstractBg}
-              alt="Abstract background"
-              className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
-            />
 
             {/* Floating UI Card */}
             <div className="absolute bottom-8 left-8 right-8 md:right-auto md:max-w-sm">
