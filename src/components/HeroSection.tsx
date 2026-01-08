@@ -27,10 +27,10 @@ const HeroSection = () => {
           }`}
         >
           <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal text-white tracking-tight leading-[1.1]" style={{ fontFamily: "'Times New Roman', 'Noto Serif SC', serif" }}>
-            Your next breakthrough,
+            AI重新定义
           </span>
           <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tracking-tight leading-[1.1] mt-2" style={{ fontFamily: "'Times New Roman', 'Noto Serif SC', serif" }}>
-            powered by AI
+            产品生产力
           </span>
         </h1>
 
