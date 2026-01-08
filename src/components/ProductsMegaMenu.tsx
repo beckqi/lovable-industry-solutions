@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { 
   Sparkles, 
   ImagePlus, 
@@ -9,11 +10,13 @@ import {
   Database
 } from "lucide-react";
 import menuDecoration from "@/assets/menu-decoration.webp";
+
 interface ProductItem {
   icon: React.ReactNode;
   title: string;
   description: string;
   href: string;
+  isRoute?: boolean;
 }
 
 const leftColumnProducts: ProductItem[] = [
@@ -21,7 +24,8 @@ const leftColumnProducts: ProductItem[] = [
     icon: <Sparkles className="w-5 h-5 text-violet-500" />,
     title: "PhotoMagic",
     description: "AI 商拍工具，一键换脸换背景",
-    href: "#photomagic",
+    href: "/photomagic",
+    isRoute: true,
   },
   {
     icon: <ImagePlus className="w-5 h-5 text-blue-500" />,
@@ -93,28 +97,48 @@ const ProductsMegaMenu = ({ isOpen }: ProductsMegaMenuProps) => {
                 电商商品内容全流程制作
               </h4>
               <div className="space-y-1">
-                {leftColumnProducts.map((product, index) => (
-                  <motion.a
-                    key={product.title}
-                    href={product.href}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group"
-                  >
-                    <div className="flex-shrink-0 mt-0.5">
-                      {product.icon}
-                    </div>
-                    <div>
-                      <div className="font-medium text-slate-900 group-hover:text-primary transition-colors">
-                        {product.title}
+                {leftColumnProducts.map((product, index) => {
+                  const MotionLink = motion(Link);
+                  const content = (
+                    <>
+                      <div className="flex-shrink-0 mt-0.5">
+                        {product.icon}
                       </div>
-                      <div className="text-sm text-slate-500 mt-0.5">
-                        {product.description}
+                      <div>
+                        <div className="font-medium text-slate-900 group-hover:text-primary transition-colors">
+                          {product.title}
+                        </div>
+                        <div className="text-sm text-slate-500 mt-0.5">
+                          {product.description}
+                        </div>
                       </div>
-                    </div>
-                  </motion.a>
-                ))}
+                    </>
+                  );
+
+                  return product.isRoute ? (
+                    <MotionLink
+                      key={product.title}
+                      to={product.href}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group"
+                    >
+                      {content}
+                    </MotionLink>
+                  ) : (
+                    <motion.a
+                      key={product.title}
+                      href={product.href}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group"
+                    >
+                      {content}
+                    </motion.a>
+                  );
+                })}
               </div>
             </div>
 
