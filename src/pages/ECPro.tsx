@@ -1,0 +1,524 @@
+import { motion, animate } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, FileText, Database, Rocket, Wand2, Package, Box } from "lucide-react";
+
+// Animated counter component
+const AnimatedNumber = ({ value, suffix = "", duration = 2 }: { value: number; suffix?: string; duration?: number }) => {
+  const [displayValue, setDisplayValue] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          const controls = animate(0, value, {
+            duration,
+            ease: "easeOut",
+            onUpdate: (v) => setDisplayValue(Math.round(v)),
+          });
+          return () => controls.stop();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value, duration, hasAnimated]);
+
+  return (
+    <span ref={ref}>
+      {displayValue}
+      <span className="text-xl text-slate-500">{suffix}</span>
+    </span>
+  );
+};
+
+const features = [
+  {
+    id: "01",
+    title: "智能详情页排版",
+    description: "高效图像识别算法，自动解析图片属性，秒级生成详情页，适配多个平台PC及APP尺寸规则",
+    icon: FileText,
+  },
+  {
+    id: "02",
+    title: "自动录入商品属性",
+    description: "AI自动识别商品属性，读取商品基本信息，自动完成多平台同步录入，简化手动重复填写过程",
+    icon: Database,
+  },
+  {
+    id: "03",
+    title: "跨店铺多平台极速上新",
+    description: "平均数分钟可完成设计、排版、上新，支持批量操作，支持主流电商平台一键上新",
+    icon: Rocket,
+  },
+  {
+    id: "04",
+    title: "智能美工工具",
+    description: "自动抠图、批量主图、智能修图、在线拼图等附加功能，满足不同场景作图需求",
+    icon: Wand2,
+  },
+  {
+    id: "05",
+    title: "商品全生命周期管理",
+    description: "支持商品上新后的多种链接维护，如自动识别失效链接，详情页批量、定时、分类投放等",
+    icon: Package,
+  },
+];
+
+const ECPro = () => {
+  const [activeFeature, setActiveFeature] = useState(0);
+
+  return (
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      
+      {/* Product Hero Section - Blue gradient background like infimind */}
+      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-10 w-64 h-64 border border-white/30 rounded-full" />
+          <div className="absolute top-40 left-20 w-48 h-48 border border-white/20 rounded-full" />
+          <div className="absolute bottom-10 right-10 w-32 h-32 border border-white/20 rounded-full" />
+        </div>
+        
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left - Text Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                ECPro易尚货
+              </h1>
+              
+              <p className="text-lg md:text-xl text-blue-100 leading-relaxed mb-8 max-w-xl">
+                易尚货是针对泛服装电商上新频率快、美工作图成本高、多平台上货工作重复低效等情况而推出的电商商品内容一站式服务平台
+              </p>
+              
+              <Button 
+                size="lg"
+                className="bg-white text-blue-700 hover:bg-blue-50 rounded-full px-8 gap-2 shadow-lg"
+              >
+                立即试用
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </motion.div>
+
+            {/* Right - 3D Box Visual */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="relative flex justify-center"
+            >
+              <div className="relative">
+                {/* 3D Box illustration */}
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-64 h-64 relative"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-3xl transform rotate-12 shadow-2xl flex items-center justify-center">
+                    <span className="text-white text-4xl font-bold">ECpro</span>
+                  </div>
+                  {/* Floating labels */}
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute -right-16 top-4 bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm shadow-lg"
+                  >
+                    素材制作
+                  </motion.div>
+                  <motion.div
+                    animate={{ x: [0, -5, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                    className="absolute -left-16 bottom-20 bg-blue-500 text-white px-4 py-2 rounded-lg text-sm shadow-lg"
+                  >
+                    运营管理
+                  </motion.div>
+                  <motion.div
+                    animate={{ y: [0, 5, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                    className="absolute right-0 -bottom-8 bg-orange-500 text-white px-4 py-2 rounded-lg text-sm shadow-lg"
+                  >
+                    渠道发布
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Features Section */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-4">
+              产品功能
+            </h2>
+            <p className="text-lg text-slate-500">
+              一站式智能美工平台
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left - Feature List */}
+            <div className="space-y-2">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  onClick={() => setActiveFeature(index)}
+                  className={`p-6 rounded-xl cursor-pointer transition-all duration-300 border-l-4 ${
+                    activeFeature === index
+                      ? "bg-blue-50 border-blue-500"
+                      : "bg-slate-50 border-transparent hover:bg-slate-100"
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <span className={`text-sm font-bold ${
+                      activeFeature === index ? "text-blue-600" : "text-slate-400"
+                    }`}>
+                      {feature.id}
+                    </span>
+                    <div>
+                      <h3 className={`font-semibold mb-2 ${
+                        activeFeature === index ? "text-blue-700" : "text-slate-700"
+                      }`}>
+                        {feature.title}
+                      </h3>
+                      {activeFeature === index && (
+                        <motion.p
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          className="text-sm text-slate-600 leading-relaxed"
+                        >
+                          {feature.description}
+                        </motion.p>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Right - Feature Visual */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="sticky top-32"
+            >
+              <div className="bg-gradient-to-br from-slate-100 to-slate-50 rounded-3xl p-8 shadow-xl">
+                {/* Mock UI Window */}
+                <div className="bg-slate-800 rounded-t-xl p-3 flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                </div>
+                <div className="bg-white rounded-b-xl p-6 min-h-[300px] flex items-center justify-center">
+                  <motion.div
+                    key={activeFeature}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-center"
+                  >
+                    {(() => {
+                      const Icon = features[activeFeature].icon;
+                      return <Icon className="w-16 h-16 text-blue-500 mx-auto mb-4" />;
+                    })()}
+                    <h4 className="text-xl font-semibold text-slate-800 mb-2">
+                      {features[activeFeature].title}
+                    </h4>
+                    <p className="text-sm text-slate-500 max-w-xs">
+                      {features[activeFeature].description}
+                    </p>
+                  </motion.div>
+                </div>
+              </div>
+
+              <div className="mt-6 text-center">
+                <Button 
+                  size="lg"
+                  className="bg-blue-600 text-white hover:bg-blue-700 rounded-full px-8"
+                >
+                  立即试用
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Template Library Section */}
+      <section className="py-20 md:py-28 bg-slate-50">
+        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-4">
+              海量优质模板库
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-2xl p-8 shadow-lg"
+            >
+              <h3 className="text-xl font-semibold text-slate-800 mb-2">详情页模板</h3>
+              <p className="text-3xl font-bold text-blue-600">5000+ <span className="text-base font-normal text-slate-500">素材库</span></p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white rounded-2xl p-8 shadow-lg"
+            >
+              <h3 className="text-xl font-semibold text-slate-800 mb-2">资源图模板</h3>
+              <p className="text-3xl font-bold text-emerald-600">图文+视频</p>
+            </motion.div>
+          </div>
+
+          {/* Scrolling gallery placeholder */}
+          <div className="overflow-hidden">
+            <motion.div
+              animate={{ x: [0, -500, 0] }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="flex gap-4"
+            >
+              {Array.from({ length: 12 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="w-32 h-40 bg-gradient-to-br from-slate-200 to-slate-300 rounded-lg flex-shrink-0"
+                />
+              ))}
+            </motion.div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <Button 
+              size="lg"
+              className="bg-blue-600 text-white hover:bg-blue-700 rounded-full px-8"
+            >
+              立即试用
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Data Improvement Section */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <h2 className="text-2xl md:text-3xl font-medium text-slate-700 mb-4">
+              数据提升
+            </h2>
+            <p className="text-lg text-slate-500">
+              3分钟录入 10s生成 1键上架
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
+            {[
+              { 
+                label: "制作效率", 
+                value: 20, 
+                unit: "倍",
+                desc: "平均3分钟/款",
+                trend: "up",
+              },
+              { 
+                label: "商品上新效率", 
+                value: 10, 
+                unit: "倍",
+                desc: "平均制作+上新10分钟/款",
+                trend: "up",
+              },
+              { 
+                label: "人力成本降低", 
+                value: 30, 
+                unit: "%",
+                desc: "无淡旺季压力，简化流程",
+                trend: "down",
+              },
+              { 
+                label: "转化率", 
+                value: 30, 
+                unit: "%",
+                desc: "",
+                trend: "up",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.15,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                whileHover={{ 
+                  y: -5, 
+                  boxShadow: "0 20px 40px -15px rgba(0,0,0,0.1)",
+                  transition: { duration: 0.3 }
+                }}
+                className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-50 to-blue-50/30 border border-slate-100 overflow-hidden cursor-default"
+              >
+                {/* Animated background decoration */}
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-10">
+                  <svg width="120" height="80" viewBox="0 0 120 80" fill="none">
+                    <motion.path 
+                      d="M10 70 L40 30 L70 50 L110 10" 
+                      stroke="currentColor" 
+                      strokeWidth="3" 
+                      className="text-blue-500"
+                      initial={{ pathLength: 0 }}
+                      whileInView={{ pathLength: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, delay: 0.5 + index * 0.2 }}
+                    />
+                    <motion.circle 
+                      cx="110" 
+                      cy="10" 
+                      r="4" 
+                      fill="currentColor" 
+                      className="text-blue-500"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 1.5 + index * 0.2 }}
+                    />
+                  </svg>
+                </div>
+
+                <motion.div 
+                  className="text-sm text-slate-500 mb-2"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                >
+                  {item.label}
+                </motion.div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-5xl md:text-6xl font-bold text-slate-800">
+                    <AnimatedNumber value={item.value} suffix={item.unit} duration={1.5 + index * 0.2} />
+                  </span>
+                  <motion.span 
+                    className={`ml-2 text-2xl ${item.trend === "down" ? "text-rose-500" : "text-emerald-500"}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
+                    animate={{ 
+                      y: item.trend === "down" ? [0, 3, 0] : [0, -3, 0]
+                    }}
+                  >
+                    {item.trend === "down" ? "↓" : "↑"}
+                  </motion.span>
+                </div>
+                {item.desc && (
+                  <motion.div 
+                    className="text-sm text-slate-500 mt-2"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                  >
+                    {item.desc}
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Button 
+                size="lg"
+                className="bg-blue-600 text-white hover:bg-blue-700 rounded-full px-12 py-6 text-lg shadow-lg shadow-blue-200 transition-all duration-300"
+              >
+                立即试用
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 md:py-28 bg-gradient-to-br from-blue-600 to-indigo-700">
+        <div className="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+              快速开启您的数字化增长之路
+            </h2>
+            
+            <Button 
+              size="lg"
+              className="bg-white text-blue-700 hover:bg-blue-50 rounded-full px-12 py-6 text-lg gap-2 shadow-xl"
+            >
+              预约演示
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default ECPro;

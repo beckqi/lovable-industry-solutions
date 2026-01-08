@@ -31,7 +31,8 @@ const leftColumnProducts: ProductItem[] = [
     icon: <ImagePlus className="w-5 h-5 text-blue-500" />,
     title: "易尚货",
     description: "主图/详情页自动生成与多平台上新同步",
-    href: "#yishanghuo",
+    href: "/ecpro",
+    isRoute: true,
   },
   {
     icon: <Scissors className="w-5 h-5 text-emerald-500" />,
