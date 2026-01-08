@@ -73,7 +73,7 @@ const products = [
     name: "易尚货",
     subtitle: "智能选品平台",
     description: "AI驱动的电商选品与趋势分析平台，精准洞察市场机会",
-    bgColor: "#ECEEF2",
+    bgGradient: "linear-gradient(45deg, #eff0f4, #f1f0f5)",
   },
   {
     id: "icut",
@@ -151,8 +151,9 @@ const ProductMatrix = () => {
     setTimeout(() => setIsAnimating(false), 1000);
   };
   
-  // Background sequence: #FFFFFF → #F7F8F9 → #FFFFFF → #F7F8F9 → #FFFFFF
-  const currentBg = activeProduct.bgColor || (activeIndex % 2 === 0 ? "#FFFFFF" : "#F7F8F9");
+  // Background sequence
+  const currentBg = activeProduct.bgGradient || (activeIndex % 2 === 0 ? "#FFFFFF" : "#F7F8F9");
+  const isGradient = !!activeProduct.bgGradient;
 
   return (
     <div
@@ -165,7 +166,10 @@ const ProductMatrix = () => {
         {/* Background with animated transition */}
         <motion.div
           className="absolute inset-0"
-          animate={{ backgroundColor: currentBg }}
+          animate={{ 
+            backgroundColor: isGradient ? "transparent" : currentBg,
+          }}
+          style={isGradient ? { background: currentBg } : undefined}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         />
 
