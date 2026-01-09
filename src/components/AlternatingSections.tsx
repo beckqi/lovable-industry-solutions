@@ -3,6 +3,9 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-
 import { Check } from "lucide-react";
 import productFlat from "@/assets/product-flat.png";
 import productModel from "@/assets/product-model.png";
+import processAiImage from "@/assets/process-ai-image.png";
+import processAiVideo from "@/assets/process-ai-video.png";
+
 interface Section {
   id: string;
   tag: string;
@@ -12,6 +15,8 @@ interface Section {
   features: string[];
   cta: string;
   type: "browser" | "phone";
+  originalImage: string;
+  aiImage: string;
 }
 const sections: Section[] = [{
   id: "ecpro",
@@ -21,7 +26,9 @@ const sections: Section[] = [{
   description: "基于 ECGPT 多模态大模型，为电商商家提供全场景的 AI 视觉内容生成能力。",
   features: ["爆款主图生成 - 智能生成高转化商品主图", "AI 详情页设计 - 自动排版产品详情页", "营销海报与 Banner - 一键生成促销素材"],
   cta: "了解更多",
-  type: "browser"
+  type: "browser",
+  originalImage: "/lovable-uploads/0c599c8c-691f-400b-89ca-7667a14f6971.png",
+  aiImage: "/lovable-uploads/e374a591-ab26-4380-a351-a3c81f4fccb2.png"
 }, {
   id: "video",
   tag: "AI 视频引擎",
@@ -30,7 +37,9 @@ const sections: Section[] = [{
   description: "革命性的 AI 视频生成技术，让静态商品图片瞬间转化为高质量营销视频。",
   features: ["AI 视频生成 - 图片一键生成高质量视频", "AI 分镜生成 - 智能规划视频分镜脚本", "AI 视频拆解 - 自动识别并剪辑精彩片段"],
   cta: "免费试用",
-  type: "phone"
+  type: "phone",
+  originalImage: processAiImage,
+  aiImage: processAiVideo
 }];
 const AlternatingSections = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -85,13 +94,13 @@ const AlternatingSections = () => {
                         <div className="space-y-2">
                           <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-muted">原图</span>
                           <div className="aspect-[3/4] rounded-xl overflow-hidden border">
-                            <img alt="原图" src="/lovable-uploads/0c599c8c-691f-400b-89ca-7667a14f6971.png" className="w-full h-full object-cover" />
+                            <img alt="原图" src={activeSection.originalImage} className="w-full h-full object-cover" />
                           </div>
                         </div>
                         <div className="space-y-2">
                           <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary text-primary-foreground">AI 生成</span>
                           <div className="aspect-[3/4] rounded-xl overflow-hidden border">
-                            <img alt="AI生成" src="/lovable-uploads/e374a591-ab26-4380-a351-a3c81f4fccb2.png" className="w-full h-full object-cover" />
+                            <img alt="AI生成" src={activeSection.aiImage} className="w-full h-full object-cover" />
                           </div>
                         </div>
                       </div>
