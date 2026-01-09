@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import yishanghuoBg from "@/assets/yishanghuo-bg.mp4";
 import iclipBg from "@/assets/iclip-bg.mp4";
 import factoryBg from "@/assets/factory-bg.mp4";
+import photomagicBg from "@/assets/photomagic-bg.mp4";
 // Custom geometric line art icons for products
 const IconPhotoMagic = () => <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
     <rect x="15" y="25" width="90" height="70" rx="4" />
@@ -121,6 +122,18 @@ const ProductMatrix = () => {
 
         {/* Main Content */}
         <div className="relative h-full flex items-center overflow-hidden">
+          {/* Video Background for PhotoMagic */}
+          <AnimatePresence>
+            {activeProduct.id === "photomagic" && <motion.video key="photomagic-video" initial={{
+            opacity: 0
+          }} animate={{
+            opacity: 1
+          }} exit={{
+            opacity: 0
+          }} transition={{
+            duration: 0.8
+          }} autoPlay loop muted playsInline preload="auto" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-auto object-cover rounded-lg z-10" src={photomagicBg} />}
+          </AnimatePresence>
           {/* Video Background for YiShangHuo */}
           <AnimatePresence>
             {activeProduct.id === "yishanghuo" && <motion.video key="yishanghuo-video" initial={{
