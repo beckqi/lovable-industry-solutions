@@ -110,6 +110,8 @@ const AlternatingSections = () => {
                                 loop 
                                 muted 
                                 playsInline
+                                preload="auto"
+                                poster={activeSection.originalImage}
                               />
                             ) : (
                               <img alt="AI生成" src={activeSection.aiImage} className="w-full h-full object-cover" />
