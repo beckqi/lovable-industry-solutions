@@ -79,7 +79,7 @@ const ProcessFlow = () => {
               <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left px-4 group">
                 {/* Icon */}
                 <div className="mb-6">
-                  <img src={step.icon} alt={step.label} className="w-20 h-20 object-contain" />
+                  <img src={step.icon} alt={step.label} className="w-24 h-24 object-contain" />
                 </div>
 
                 {/* Text */}
