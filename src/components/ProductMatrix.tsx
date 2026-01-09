@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import yishanghuoBg from "@/assets/yishanghuo-bg.mp4";
 import iclipBg from "@/assets/iclip-bg.mp4";
+import factoryBg from "@/assets/factory-bg.mp4";
 // Custom geometric line art icons for products
 const IconPhotoMagic = () => <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
     <rect x="15" y="25" width="90" height="70" rx="4" />
@@ -151,7 +152,7 @@ const ProductMatrix = () => {
             opacity: 0
           }} transition={{
             duration: 0.8
-          }} autoPlay loop muted playsInline className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-auto object-cover rounded-lg z-10" src={yishanghuoBg} />}
+          }} autoPlay loop muted playsInline className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-auto object-cover rounded-lg z-10" src={factoryBg} />}
           </AnimatePresence>
           <div className="container mx-auto px-8 lg:px-16 relative z-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
