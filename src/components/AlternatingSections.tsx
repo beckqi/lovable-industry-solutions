@@ -38,8 +38,8 @@ const sections: Section[] = [{
   features: ["AI 视频生成 - 图片一键生成高质量视频", "AI 分镜生成 - 智能规划视频分镜脚本", "AI 视频拆解 - 自动识别并剪辑精彩片段"],
   cta: "免费试用",
   type: "phone",
-  originalImage: processAiImage,
-  aiImage: videoAiResult
+  originalImage: videoAiResult,
+  aiImage: processAiImage
 }];
 const AlternatingSections = () => {
   const [activeIndex, setActiveIndex] = useState(0);
