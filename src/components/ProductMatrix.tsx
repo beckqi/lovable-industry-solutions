@@ -33,7 +33,8 @@ const products = [{
   stat: "10x",
   name: "PhotoMagic",
   subtitle: "AI商拍工具",
-  description: "一键换脸换背景、极速生成商品场景图，轻松打造专业级电商主图"
+  description: "一键换脸换背景、极速生成商品场景图，轻松打造专业级电商主图",
+  bgGradient: "linear-gradient(45deg, #eff0f4, #f1f0f5)"
 }, {
   id: "yishanghuo",
   Icon: IconYiShangHuo,
@@ -48,14 +49,16 @@ const products = [{
   stat: "1000+",
   name: "iClip 易视频",
   subtitle: "批量剪辑平台",
-  description: "AI驱动的视频批量生产与分发工具，规模化内容产出"
+  description: "AI驱动的视频批量生产与分发工具，规模化内容产出",
+  bgGradient: "linear-gradient(45deg, #eff0f4, #f1f0f5)"
 }, {
   id: "factory",
   Icon: IconFactory,
   stat: "24h",
   name: "内容工厂",
   subtitle: "代制作服务",
-  description: "专业团队+AI能力的内容代运营服务，全托管式解决方案"
+  description: "专业团队+AI能力的内容代运营服务，全托管式解决方案",
+  bgGradient: "linear-gradient(45deg, #eff0f4, #f1f0f5)"
 }];
 const ProductMatrix = () => {
   const containerRef = useRef<HTMLDivElement>(null);
