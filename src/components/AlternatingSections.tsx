@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 import productFlat from "@/assets/product-flat.png";
 import productModel from "@/assets/product-model.png";
 import processAiImage from "@/assets/process-ai-image.png";
-import processAiVideo from "@/assets/process-ai-video.png";
+import videoAiResult from "@/assets/video-ai-result.png";
 
 interface Section {
   id: string;
@@ -39,7 +39,7 @@ const sections: Section[] = [{
   cta: "免费试用",
   type: "phone",
   originalImage: processAiImage,
-  aiImage: processAiVideo
+  aiImage: videoAiResult
 }];
 const AlternatingSections = () => {
   const [activeIndex, setActiveIndex] = useState(0);
