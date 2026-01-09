@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import yishanghuoBg from "@/assets/yishanghuo-bg.mp4";
+import yishanghuoBg from "@/assets/yishanghuo-bg.mov";
 import iclipBg from "@/assets/iclip-bg.mov";
 // Custom geometric line art icons for products
 const IconPhotoMagic = () => <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
@@ -24,18 +24,8 @@ const IconICut = () => <svg viewBox="0 0 120 120" fill="none" stroke="currentCol
     <line x1="45" y1="52" x2="75" y2="52" />
     <polygon points="60,20 55,30 65,30" fill="currentColor" />
   </svg>;
-const IconIClip = () => {};
-const IconFactory = () => <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
-    <rect x="15" y="50" width="35" height="55" rx="2" />
-    <rect x="55" y="35" width="50" height="70" rx="2" />
-    <rect x="20" y="20" width="25" height="30" rx="1" />
-    <rect x="65" y="50" width="12" height="18" rx="1" />
-    <rect x="83" y="50" width="12" height="18" rx="1" />
-    <rect x="65" y="75" width="12" height="18" rx="1" />
-    <rect x="83" y="75" width="12" height="18" rx="1" />
-    <ellipse cx="32.5" cy="20" rx="6" ry="10" />
-    <path d="M32.5 10 Q38 5 32.5 0" strokeWidth="0.6" />
-  </svg>;
+const IconIClip = () => null;
+const IconFactory = () => null;
 const products = [{
   id: "photomagic",
   Icon: IconPhotoMagic,
@@ -150,6 +140,18 @@ const ProductMatrix = () => {
           }} transition={{
             duration: 0.8
           }} autoPlay loop muted playsInline className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-auto object-cover rounded-lg z-10" src={iclipBg} />}
+          </AnimatePresence>
+          {/* Video Background for Factory */}
+          <AnimatePresence>
+            {activeProduct.id === "factory" && <motion.video key="factory-video" initial={{
+            opacity: 0
+          }} animate={{
+            opacity: 1
+          }} exit={{
+            opacity: 0
+          }} transition={{
+            duration: 0.8
+          }} autoPlay loop muted playsInline className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-auto object-cover rounded-lg z-10" src={yishanghuoBg} />}
           </AnimatePresence>
           <div className="container mx-auto px-8 lg:px-16 relative z-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
