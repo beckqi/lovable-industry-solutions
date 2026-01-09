@@ -5,6 +5,7 @@ import productFlat from "@/assets/product-flat.png";
 import productModel from "@/assets/product-model.png";
 import processAiImage from "@/assets/process-ai-image.png";
 import videoAiResult from "@/assets/video-ai-result.png";
+import videoAiGenerated from "@/assets/video-ai-generated.mp4";
 
 interface Section {
   id: string;
@@ -16,7 +17,8 @@ interface Section {
   cta: string;
   type: "browser" | "phone";
   originalImage: string;
-  aiImage: string;
+  aiImage?: string;
+  aiVideo?: string;
 }
 const sections: Section[] = [{
   id: "ecpro",
@@ -39,7 +41,7 @@ const sections: Section[] = [{
   cta: "免费试用",
   type: "phone",
   originalImage: videoAiResult,
-  aiImage: processAiImage
+  aiVideo: videoAiGenerated
 }];
 const AlternatingSections = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -100,7 +102,18 @@ const AlternatingSections = () => {
                         <div className="space-y-2">
                           <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary text-primary-foreground">AI 生成</span>
                           <div className="aspect-[3/4] rounded-xl overflow-hidden border">
-                            <img alt="AI生成" src={activeSection.aiImage} className="w-full h-full object-cover" />
+                            {activeSection.aiVideo ? (
+                              <video 
+                                src={activeSection.aiVideo} 
+                                className="w-full h-full object-cover" 
+                                autoPlay 
+                                loop 
+                                muted 
+                                playsInline
+                              />
+                            ) : (
+                              <img alt="AI生成" src={activeSection.aiImage} className="w-full h-full object-cover" />
+                            )}
                           </div>
                         </div>
                       </div>
