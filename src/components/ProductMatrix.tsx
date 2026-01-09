@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import yishanghuoBg from "@/assets/yishanghuo-bg.mov";
-import iclipBg from "@/assets/iclip-bg.mov";
+import iclipBg from "@/assets/iclip-bg.mp4";
 // Custom geometric line art icons for products
 const IconPhotoMagic = () => <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
     <rect x="15" y="25" width="90" height="70" rx="4" />
