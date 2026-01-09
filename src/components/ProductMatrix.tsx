@@ -76,14 +76,6 @@ const products = [
     bgGradient: "linear-gradient(45deg, #eff0f4, #f1f0f5)",
   },
   {
-    id: "icut",
-    Icon: IconICut,
-    stat: "60s",
-    name: "iCut 直剪",
-    subtitle: "直播切片工具",
-    description: "直播高光时刻自动识别与智能剪辑，快速产出爆款短视频",
-  },
-  {
     id: "iclip",
     Icon: IconIClip,
     stat: "1000+",
@@ -175,24 +167,6 @@ const ProductMatrix = () => {
 
         {/* Main Content */}
         <div className="relative h-full flex items-center overflow-hidden">
-          {/* Video Background for iCut */}
-          <AnimatePresence>
-            {activeProduct.id === "icut" && (
-              <motion.video
-                key="icut-video"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8 }}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover z-0"
-                src="/videos/icut-bg.mov"
-              />
-            )}
-          </AnimatePresence>
           {/* Video Background for YiShangHuo */}
           <AnimatePresence>
             {activeProduct.id === "yishanghuo" && (
