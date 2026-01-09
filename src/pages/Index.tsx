@@ -21,7 +21,7 @@ const Index = () => {
       <ProductMatrix />
       <AlternatingSections />
       <TechAdvantages />
-      <SolutionTabs />
+      {/* <SolutionTabs /> */}
       <CaseStudies />
       <SocialProof />
       <FinalCTA />
