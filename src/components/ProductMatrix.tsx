@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import yishanghuoBg from "@/assets/yishanghuo-bg.mp4";
+import iclipBg from "@/assets/iclip-bg.mov";
 // Custom geometric line art icons for products
 const IconPhotoMagic = () => (
   <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
@@ -182,6 +183,24 @@ const ProductMatrix = () => {
                 playsInline
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-auto object-cover rounded-lg z-10"
                 src={yishanghuoBg}
+              />
+            )}
+          </AnimatePresence>
+          {/* Video Background for iClip */}
+          <AnimatePresence>
+            {activeProduct.id === "iclip" && (
+              <motion.video
+                key="iclip-video"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8 }}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-auto object-cover rounded-lg z-10"
+                src={iclipBg}
               />
             )}
           </AnimatePresence>
