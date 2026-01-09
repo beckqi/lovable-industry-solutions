@@ -91,7 +91,7 @@ const AlternatingSections = () => {
                         <div className="space-y-2">
                           <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary text-primary-foreground">AI 生成</span>
                           <div className="aspect-[3/4] rounded-xl overflow-hidden border">
-                            <img alt="AI生成" src="/lovable-uploads/e374a591-ab26-4380-a351-a3c81f4fccb2.png" className="w-[80%] h-[80%] mx-auto border-0 object-fill" />
+                            <img alt="AI生成" src="/lovable-uploads/e374a591-ab26-4380-a351-a3c81f4fccb2.png" className="w-full h-full object-cover" />
                           </div>
                         </div>
                       </div>
