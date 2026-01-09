@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.png";
+import heroBgVideo from "@/assets/hero-bg.mp4";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,11 +42,16 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Background image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
+      {/* Background video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={heroBgVideo} type="video/mp4" />
+      </video>
       {/* Dark overlay 45% opacity */}
       <div className="absolute inset-0 bg-black/45" />
       {/* Main content - centered like Cohere */}
