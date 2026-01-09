@@ -85,7 +85,7 @@ const AlternatingSections = () => {
                         <div className="space-y-2">
                           <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-muted">原图</span>
                           <div className="aspect-[3/4] rounded-xl overflow-hidden border">
-                            <img alt="原图" className="w-[80%] h-[80%] object-cover mx-auto" src="/lovable-uploads/0c599c8c-691f-400b-89ca-7667a14f6971.png" />
+                            <img alt="原图" src="/lovable-uploads/0c599c8c-691f-400b-89ca-7667a14f6971.png" className="w-[80%] h-[80%] object-cover mx-auto border-0" />
                           </div>
                         </div>
                         <div className="space-y-2">
