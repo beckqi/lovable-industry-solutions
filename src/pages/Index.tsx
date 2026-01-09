@@ -5,7 +5,7 @@ import TechAdvantages from "@/components/TechAdvantages";
 import ProcessFlow from "@/components/ProcessFlow";
 import TrustWall from "@/components/TrustWall";
 import ProductMatrix from "@/components/ProductMatrix";
-import SolutionTabs from "@/components/SolutionTabs";
+import IndustrySolutions from "@/components/IndustrySolutions";
 import CaseStudies from "@/components/CaseStudies";
 import SocialProof from "@/components/SocialProof";
 import FinalCTA from "@/components/FinalCTA";
@@ -21,7 +21,7 @@ const Index = () => {
       <ProductMatrix />
       <AlternatingSections />
       <TechAdvantages />
-      {/* <SolutionTabs /> */}
+      <IndustrySolutions />
       <CaseStudies />
       <SocialProof />
       <FinalCTA />
