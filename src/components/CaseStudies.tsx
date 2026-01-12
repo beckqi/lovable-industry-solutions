@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import caseTpbBg from "@/assets/case-tpb-bg.webp";
 import caseBelleBg from "@/assets/case-belle-bg.webp";
+import caseAntaBg from "@/assets/case-anta-bg.png";
 const caseStudies = [{
   id: "fashion",
   industry: "服装鞋帽",
@@ -48,7 +49,8 @@ const caseStudies = [{
     value: "2x",
     label: "上新效率提升"
   }],
-  gradient: "from-slate-50/80 via-emerald-50/30 to-teal-50/20"
+  gradient: "from-slate-50/80 via-emerald-50/30 to-teal-50/20",
+  bgImage: caseAntaBg
 }, {
   id: "home",
   industry: "家居家装",
