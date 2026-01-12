@@ -68,7 +68,7 @@ const ProcessFlow = () => {
           delay: index * 0.1
         }} className="relative flex-1 flex items-start">
               {/* Step Card */}
-              <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left px-4 group">
+              <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left px-4 group cursor-pointer transition-transform duration-300 hover:scale-110">
                 {/* Icon */}
                 <div className="mb-6">
                   <img src={step.icon} alt={step.label} className="w-24 h-24 object-contain mt--5" />
