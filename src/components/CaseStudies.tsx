@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import caseTpbBg from "@/assets/case-tpb-bg.webp";
 const caseStudies = [{
   id: "fashion",
   industry: "服装鞋帽",
@@ -14,7 +15,8 @@ const caseStudies = [{
     value: "5x",
     label: "人效提升"
   }],
-  gradient: "from-slate-50/80 via-blue-50/40 to-indigo-50/30"
+  gradient: "from-slate-50/80 via-blue-50/40 to-indigo-50/30",
+  bgImage: caseTpbBg
 }, {
   id: "beauty",
   industry: "美妆个护",
@@ -100,7 +102,11 @@ const CaseStudies = () => {
         }} transition={{
           duration: 0.5
         }} className={`relative rounded-3xl overflow-hidden cursor-pointer ${activeIndex === index ? "shadow-xl" : "shadow-sm"}`}>
-              <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`} />
+              {item.bgImage ? (
+                <img src={item.bgImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
+              ) : (
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`} />
+              )}
               <AnimatePresence>
                 {activeIndex !== index && <motion.div initial={{
               opacity: 0

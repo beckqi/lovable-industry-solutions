@@ -6,7 +6,7 @@ import iclipBg from "@/assets/iclip-bg.mp4";
 import factoryBg from "@/assets/factory-bg.mp4";
 import photomagicBg from "@/assets/photomagic-bg.mov";
 // Custom geometric line art icons for products
-const IconPhotoMagic = () => {};
+const IconPhotoMagic = () => null;
 const IconYiShangHuo = () => null;
 const IconICut = () => <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
     <circle cx="35" cy="85" r="15" />
