@@ -4,6 +4,7 @@ import caseTpbBg from "@/assets/case-tpb-bg.webp";
 import caseBelleBg from "@/assets/case-belle-bg.webp";
 import caseAntaBg from "@/assets/case-anta-bg.png";
 import caseLinsyBg from "@/assets/case-linsy-bg.webp";
+import caseSzsBg from "@/assets/case-szs-bg.webp";
 const caseStudies = [{
   id: "fashion",
   industry: "服装鞋帽",
@@ -82,7 +83,8 @@ const caseStudies = [{
     value: "4x",
     label: "营销素材产出"
   }],
-  gradient: "from-slate-50/80 via-yellow-50/30 to-lime-50/20"
+  gradient: "from-slate-50/80 via-yellow-50/30 to-lime-50/20",
+  bgImage: caseSzsBg
 }];
 const CaseStudies = () => {
   const [activeIndex, setActiveIndex] = useState(0);
