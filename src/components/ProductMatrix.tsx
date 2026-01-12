@@ -6,15 +6,7 @@ import iclipBg from "@/assets/iclip-bg.mp4";
 import factoryBg from "@/assets/factory-bg.mp4";
 import photomagicBg from "@/assets/photomagic-bg.mov";
 // Custom geometric line art icons for products
-const IconPhotoMagic = () => <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
-    
-    <rect x="25" y="35" width="70" height="50" rx="2" />
-    <circle cx="50" cy="55" r="15" />
-    <circle cx="50" cy="55" r="8" />
-    <circle cx="50" cy="55" r="3" fill="currentColor" />
-    <polygon points="75,50 90,70 60,70" strokeLinejoin="round" />
-    <circle cx="80" cy="45" r="5" />
-  </svg>;
+const IconPhotoMagic = () => {};
 const IconYiShangHuo = () => null;
 const IconICut = () => <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
     <circle cx="35" cy="85" r="15" />
