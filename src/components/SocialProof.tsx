@@ -10,6 +10,16 @@ import logoMoco from "@/assets/logo-moco.png";
 import logoEllassay from "@/assets/logo-ellassay.png";
 import logoJoeone from "@/assets/logo-joeone.png";
 import logoSnowflying from "@/assets/logo-snowflying.png";
+import logoFairwhale from "@/assets/logo-fairwhale.png";
+import logoYishion from "@/assets/logo-yishion.png";
+import logoAilaiyi from "@/assets/logo-ailaiyi.png";
+import logoChiushui from "@/assets/logo-chiushui.png";
+import logoAnnil from "@/assets/logo-annil.png";
+import logoBaleno from "@/assets/logo-baleno.png";
+import logoBossini from "@/assets/logo-bossini.png";
+import logoLachapelle from "@/assets/logo-lachapelle.png";
+import logoBaiwuxi from "@/assets/logo-baiwuxi.png";
+import logoPioneercamp from "@/assets/logo-pioneercamp.png";
 
 const logos = [
   { name: "安踏", image: logoAnta },
@@ -22,11 +32,16 @@ const logos = [
   { name: "ELLASSAY", image: logoEllassay },
   { name: "九牧王", image: logoJoeone },
   { name: "雪中飞", image: logoSnowflying },
-  { name: "Kappa", initials: "KAPPA" },
-  { name: "Champion", initials: "CHAMPION" },
-  { name: "New Balance", initials: "NEW BALANCE" },
-  { name: "SALOMON", initials: "SALOMON" },
-  { name: "斯凯奇", initials: "SKECHERS" },
+  { name: "马克华菲", image: logoFairwhale },
+  { name: "以纯", image: logoYishion },
+  { name: "艾莱依", image: logoAilaiyi },
+  { name: "秋水伊人", image: logoChiushui },
+  { name: "安奈儿", image: logoAnnil },
+  { name: "班尼路", image: logoBaleno },
+  { name: "堡狮龙", image: logoBossini },
+  { name: "拉夏贝尔", image: logoLachapelle },
+  { name: "百武西", image: logoBaiwuxi },
+  { name: "拓路者", image: logoPioneercamp },
 ];
 
 const SocialProof = () => (
@@ -36,7 +51,7 @@ const SocialProof = () => (
         <p className="text-sm text-muted-foreground tracking-[0.2em] uppercase mb-4">Trusted Partners</p>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">合作客户</h2>
       </motion.div>
-      <div className="grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-12 mb-16">
+      <div className="grid grid-cols-4 md:grid-cols-5 gap-8 md:gap-12 mb-16">
         {logos.map((logo, index) => (
           <motion.div 
             key={logo.name} 
@@ -46,17 +61,11 @@ const SocialProof = () => (
             transition={{ duration: 0.4, delay: index * 0.03 }} 
             className="flex items-center justify-center group border border-border rounded-lg bg-background/50 hover:border-primary/30 transition-all duration-300"
           >
-            {logo.image ? (
-              <img 
-                src={logo.image} 
-                alt={logo.name} 
-                className="h-20 md:h-24 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
-              />
-            ) : (
-              <span className="text-sm md:text-base font-semibold tracking-[0.15em] text-muted-foreground/40 group-hover:text-foreground/60 group-hover:scale-110 transition-all duration-300">
-                {logo.initials}
-              </span>
-            )}
+            <img 
+              src={logo.image} 
+              alt={logo.name} 
+              className="h-20 md:h-24 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
+            />
           </motion.div>
         ))}
       </div>
