@@ -23,7 +23,7 @@ const FinalCTA = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style={{ color: "#011C45" }}>准备好开启 AI 驱动的增长了吗？</h2>
             <p className="text-lg md:text-xl max-w-2xl mx-auto mb-12" style={{ color: "#011C45", opacity: 0.7 }}>立即预约专家演示，获取定制化全链路内容解决方案</p>
-            <motion.button onClick={() => setIsOpen(true)} className="relative px-12 py-5 rounded-full text-lg font-semibold bg-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300" style={{ color: "#011C45" }} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>预约演示</motion.button>
+            <motion.button onClick={() => setIsOpen(true)} className="relative px-12 py-5 rounded-full text-lg font-semibold text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300" style={{ backgroundColor: "#011C45" }} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>预约演示</motion.button>
           </motion.div>
         </div>
       </section>
