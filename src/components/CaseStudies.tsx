@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import caseTpbBg from "@/assets/case-tpb-bg.webp";
 import caseBelleBg from "@/assets/case-belle-bg.webp";
 import caseAntaBg from "@/assets/case-anta-bg.png";
+import caseLinsyBg from "@/assets/case-linsy-bg.webp";
 const caseStudies = [{
   id: "fashion",
   industry: "服装鞋帽",
@@ -65,7 +66,8 @@ const caseStudies = [{
     value: "3x",
     label: "场景数量提升"
   }],
-  gradient: "from-slate-50/80 via-amber-50/30 to-orange-50/20"
+  gradient: "from-slate-50/80 via-amber-50/30 to-orange-50/20",
+  bgImage: caseLinsyBg
 }, {
   id: "food",
   industry: "食品饮料",
