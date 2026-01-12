@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import ctaBg from "@/assets/cta-bg.png";
 
 const FinalCTA = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,13 +15,15 @@ const FinalCTA = () => {
 
   return (
     <>
-      <section className="relative py-32 overflow-hidden" style={{ background: "linear-gradient(135deg, #001A41 0%, #002D6B 50%, #001A41 100%)" }}>
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={ctaBg} alt="" className="w-full h-full object-cover" />
+        </div>
         <div className="container relative mx-auto px-6 lg:px-16 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">准备好开启 AI 驱动的增长了吗？</h2>
-            <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-12">立即预约专家演示，获取定制化全链路内容解决方案</p>
-            <motion.button onClick={() => setIsOpen(true)} className="relative px-12 py-5 rounded-full text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:scale-105 transition-all duration-300" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>预约演示</motion.button>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style={{ color: "#011C45" }}>准备好开启 AI 驱动的增长了吗？</h2>
+            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-12" style={{ color: "#011C45", opacity: 0.7 }}>立即预约专家演示，获取定制化全链路内容解决方案</p>
+            <motion.button onClick={() => setIsOpen(true)} className="relative px-12 py-5 rounded-full text-lg font-semibold bg-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300" style={{ color: "#011C45" }} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>预约演示</motion.button>
           </motion.div>
         </div>
       </section>
