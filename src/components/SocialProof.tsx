@@ -1,9 +1,32 @@
 import { motion } from "framer-motion";
 
+import logoAnta from "@/assets/logo-anta.png";
+import logoEpyaying from "@/assets/logo-epyaying.png";
+import logoDescente from "@/assets/logo-descente.png";
+import logoEifini from "@/assets/logo-eifini.png";
+import logoException from "@/assets/logo-exception.png";
+import logoEeka from "@/assets/logo-eeka.png";
+import logoMoco from "@/assets/logo-moco.png";
+import logoEllassay from "@/assets/logo-ellassay.png";
+import logoJoeone from "@/assets/logo-joeone.png";
+import logoSnowflying from "@/assets/logo-snowflying.png";
+
 const logos = [
-  { name: "安踏", initials: "ANTA" }, { name: "太平鸟", initials: "PEACEBIRD" }, { name: "百丽", initials: "BELLE" }, { name: "JINS", initials: "JINS" }, { name: "UGG", initials: "UGG" },
-  { name: "LANCY", initials: "LANCY" }, { name: "森马", initials: "SEMIR" }, { name: "斯凯奇", initials: "SKECHERS" }, { name: "红豆", initials: "HODO" }, { name: "SALOMON", initials: "SALOMON" },
-  { name: "MO&Co", initials: "MO&Co" }, { name: "ELLASSAY", initials: "ELLASSAY" }, { name: "Kappa", initials: "KAPPA" }, { name: "Champion", initials: "CHAMPION" }, { name: "New Balance", initials: "NEW BALANCE" },
+  { name: "安踏", image: logoAnta },
+  { name: "EP雅莹", image: logoEpyaying },
+  { name: "DESCENTE", image: logoDescente },
+  { name: "伊芙丽", image: logoEifini },
+  { name: "例外", image: logoException },
+  { name: "赢家时尚", image: logoEeka },
+  { name: "MO&Co", image: logoMoco },
+  { name: "ELLASSAY", image: logoEllassay },
+  { name: "九牧王", image: logoJoeone },
+  { name: "雪中飞", image: logoSnowflying },
+  { name: "Kappa", initials: "KAPPA" },
+  { name: "Champion", initials: "CHAMPION" },
+  { name: "New Balance", initials: "NEW BALANCE" },
+  { name: "SALOMON", initials: "SALOMON" },
+  { name: "斯凯奇", initials: "SKECHERS" },
 ];
 
 const SocialProof = () => (
@@ -15,8 +38,25 @@ const SocialProof = () => (
       </motion.div>
       <div className="grid grid-cols-3 md:grid-cols-5 gap-8 md:gap-12 mb-16">
         {logos.map((logo, index) => (
-          <motion.div key={logo.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: index * 0.03 }} className="flex items-center justify-center py-6">
-            <span className="text-sm md:text-base font-semibold tracking-[0.15em] text-muted-foreground/40 hover:text-foreground/60 transition-colors duration-500">{logo.initials}</span>
+          <motion.div 
+            key={logo.name} 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ duration: 0.4, delay: index * 0.03 }} 
+            className="flex items-center justify-center py-6 group"
+          >
+            {logo.image ? (
+              <img 
+                src={logo.image} 
+                alt={logo.name} 
+                className="h-10 md:h-12 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
+              />
+            ) : (
+              <span className="text-sm md:text-base font-semibold tracking-[0.15em] text-muted-foreground/40 group-hover:text-foreground/60 group-hover:scale-110 transition-all duration-300">
+                {logo.initials}
+              </span>
+            )}
           </motion.div>
         ))}
       </div>
