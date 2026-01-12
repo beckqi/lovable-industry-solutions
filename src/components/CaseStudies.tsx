@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import caseTpbBg from "@/assets/case-tpb-bg.webp";
+import caseBelleBg from "@/assets/case-belle-bg.webp";
 const caseStudies = [{
   id: "fashion",
   industry: "服装鞋帽",
@@ -31,7 +32,8 @@ const caseStudies = [{
     value: "25%",
     label: "点击率提升"
   }],
-  gradient: "from-slate-50/80 via-rose-50/30 to-pink-50/20"
+  gradient: "from-slate-50/80 via-rose-50/30 to-pink-50/20",
+  bgImage: caseBelleBg
 }, {
   id: "sports",
   industry: "运动户外",
