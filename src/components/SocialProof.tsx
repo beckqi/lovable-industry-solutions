@@ -44,7 +44,7 @@ const SocialProof = () => (
             whileInView={{ opacity: 1, y: 0 }} 
             viewport={{ once: true }} 
             transition={{ duration: 0.4, delay: index * 0.03 }} 
-            className="flex items-center justify-center py-3 px-4 group border border-border rounded-lg bg-background/50 hover:border-primary/30 transition-all duration-300"
+            className="flex items-center justify-center group border border-border rounded-lg bg-background/50 hover:border-primary/30 transition-all duration-300"
           >
             {logo.image ? (
               <img 
