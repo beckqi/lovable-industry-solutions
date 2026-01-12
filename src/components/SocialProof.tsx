@@ -64,7 +64,7 @@ const SocialProof = () => (
             <img 
               src={logo.image} 
               alt={logo.name} 
-              className="h-20 md:h-24 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
+              className="h-20 md:h-24 w-auto object-contain transition-all duration-300 group-hover:scale-110"
             />
           </motion.div>
         ))}
