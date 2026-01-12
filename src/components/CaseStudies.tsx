@@ -102,11 +102,7 @@ const CaseStudies = () => {
         }} transition={{
           duration: 0.5
         }} className={`relative rounded-3xl overflow-hidden cursor-pointer ${activeIndex === index ? "shadow-xl" : "shadow-sm"}`}>
-              {item.bgImage ? (
-                <img src={item.bgImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
-              ) : (
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`} />
-              )}
+              <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`} />
               <AnimatePresence>
                 {activeIndex !== index && <motion.div initial={{
               opacity: 0
@@ -130,7 +126,13 @@ const CaseStudies = () => {
             }} className="relative h-full p-8 flex gap-8">
                     <div className="flex flex-col w-[280px] flex-shrink-0">
                       <h3 className="text-2xl font-bold text-primary mb-6">{item.industry}</h3>
-                      <div className="flex-1 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 flex items-center justify-center shadow-none"><div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center"><span className="text-2xl font-bold text-primary">{item.logo}</span></div></div>
+                      <div className="flex-1 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 flex items-center justify-center shadow-none overflow-hidden">
+                        {item.bgImage ? (
+                          <img src={item.bgImage} alt={item.company} className="w-full h-full object-cover" />
+                        ) : (
+                          <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center"><span className="text-2xl font-bold text-primary">{item.logo}</span></div>
+                        )}
+                      </div>
                     </div>
                     <div className="flex-1 flex flex-col justify-center">
                       <h4 className="text-xl font-bold text-foreground mb-4">{item.company}</h4>
